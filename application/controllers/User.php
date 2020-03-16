@@ -13,8 +13,8 @@ class User extends CI_Controller
         parent::__construct();
         // $this->load->model("product_model");
         $this->load->library('form_validation');
-        $this->load->model("user_model");
-        if ($this->user_model->isNotLogin()) redirect(site_url('auth'));
+        $this->load->model("User_model");
+        if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 
 
@@ -33,15 +33,17 @@ class User extends CI_Controller
     public function tambahUser()
     {
         $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[users.email]', [
-            'is_unique' => 'Email tersebut sudah ada.', 'valid_email' => 'Masukkan email yang valid'
+            'is_unique' => 'Email tersebut sudah dipakai.', 'valid_email' => 'Masukkan email yang valid'
         ]);
-        $this->form_validation->set_rules('nama_user', 'namauser', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('nama_user', 'nama lengkap', 'trim|required|min_length[3]', [
+            'min_length' => 'Nama Lengkap minimal 3 karakter.'
+        ]);
         $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[3]|is_unique[users.username]', [
-            'min_length' => 'Username terlalu pendek!',
-            'is_unique' => 'Username tersebut sudah ada.'
+            'min_length' => 'Username terlalu pendek! Minimal 3 karakter.',
+            'is_unique' => 'Username tersebut sudah dipakai.'
         ]);
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [
-            'min_length' => 'Password terlalu pendek'
+            'min_length' => 'Password terlalu pendek! Minimal 5 karakter.'
         ]);
         $this->form_validation->set_rules('instansi', 'instansi', 'trim|required');
         // $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [

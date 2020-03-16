@@ -18,6 +18,7 @@
                     <label for="email" class="col-sm-3 col-form-label"><em>Email</em></label>
                     <div class="col-sm-7">
                         <input type="text" name="email" class="form-control" id="email" value="">
+                        <!-- kalo ditambah required akan keluar Isi Isian ini-->
                         <small class="form-text text-danger"><?= form_error('email'); ?></small>
                     </div>
                 </div>
@@ -38,18 +39,19 @@
                 <div class="form-group row">
                     <label for="password" class="col-sm-3 col-form-label"><em>Password</em></label>
                     <div class="col-sm-7">
-                        <input type="text" name="password" class="form-control" id="password" value="">
+                        <input type="password" name="password" class="form-control" id="password" value="<?= set_value('password'); ?>">
                         <small class="form-text text-danger"><?= form_error('password'); ?></small>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="hak_akses" class="col-sm-3 col-form-label">Hak Akses</label>
                     <div class="col-sm-7">
-                        <input type="text" readonly required name="hak_akses" class="form-control" placeholder="Admin" id="hak_akses" disabled value="1">
-                        <!-- <select class="form-control" name="hak_akses" required>
-                            <option <?php (set_value('hak_akses') == 1) ?> <?= "selected"; ?> value="1">Administrator</option>
+                        <!-- <input type="text" name="hak_akses" class="form-control" placeholder="Admin" id="hak_akses" disabled value="1" readonly required> -->
+                        <select class="form-control" name="hak_akses">
+                            <option <?php set_value('hak_akses') == 1 ?> <?php echo "selected"; ?> value="1">Admin</option>
                         </select>
-                        <input type="text" class="form-control" id="inputEmail3" name="namaadmin" placeholder="Nama Administrator" disabled value="<?php echo $e->nama_admin ?>" required> -->
+
+                        <!-- <input type="text" class="form-control" id="inputEmail3" name="namaadmin" placeholder="Nama Administrator" disabled value="<?php echo $e->nama_admin ?>" required> -->
                     </div>
                 </div>
 

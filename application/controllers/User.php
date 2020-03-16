@@ -37,7 +37,8 @@ class User extends CI_Controller
         ]);
         $this->form_validation->set_rules('nama_user', 'namauser', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[3]|is_unique[users.username]', [
-            'is_unique' => 'Username tersebut sudah ada.', 'min_length' => 'Username terlalu pendek!'
+            'min_length' => 'Username terlalu pendek!',
+            'is_unique' => 'Username tersebut sudah ada.'
         ]);
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [
             'min_length' => 'Password terlalu pendek'
@@ -62,7 +63,7 @@ class User extends CI_Controller
                 'username' => htmlspecialchars($this->input->post('username', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'instansi' => htmlspecialchars($this->input->post('instansi', true)),
-                // 'hak_akses' => 1,
+                //'hak_akses' => 1,
                 // 'jenis_kelamin' => 1,
                 'last_login' => time()
             ];

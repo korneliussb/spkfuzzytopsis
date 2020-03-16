@@ -52,10 +52,11 @@ class User_model extends CI_Model
             // periksa password-nya
             $isPasswordTrue = password_verify($post["password"], $user->password);
             // periksa role-nya
-            $isAdmin = $user->hak_akses == "1";
+            // $isAdmin = $user->hak_akses == "1";
 
             // jika password benar dan dia telah terdaftar / admin
-            if ($isPasswordTrue && $isAdmin) {
+            // if ($isPasswordTrue && $isAdmin) {
+            if ($isPasswordTrue) {
                 // login sukses
                 $this->session->set_userdata(['user_logged' => $user]);
                 $this->_updateLastLogin($user->user_id);
@@ -94,5 +95,33 @@ class User_model extends CI_Model
             "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
             "instansi" => $this->input->post('instansi', true)
         ];
+
+        $this->db->insert($this->_table, $data);
+    }
+
+    public function hapusDataUser($user_id)
+    {
+        $this->db->delete($this->_table, ['user_id' => $user_id]);
+    }
+
+    public function getUserById($user_id)
+    {
+        return $this->db->get_where($this->_table, ['user_id' => $user_id])->row_array();
+    }
+
+    public function ubahDataUser()
+    {
+        $data = [
+            "email" => $this->input->post('email', true),
+            "nama_user" => $this->input->post('nama_user', true),
+            "username" => $this->input->post('username', true),
+            "password" => $this->input->post('password', true),
+            "hak_akses" => $this->input->post('hak_akses', true),
+            "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
+            "instansi" => $this->input->post('instansi', true)
+        ];
+
+        $this->db->where('user_id', $this->input->post('user_id'));
+        $this->db->update($this->_table, $data);
     }
 }

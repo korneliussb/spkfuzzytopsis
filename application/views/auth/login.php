@@ -17,7 +17,7 @@
                                 <form class="user" method="post" action="">
                                     <!--Memanggil method default UP-->
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email atau Username...>" value="">
+                                        <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email atau Username..." value="">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">

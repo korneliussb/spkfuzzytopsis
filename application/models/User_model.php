@@ -77,4 +77,22 @@ class User_model extends CI_Model
         $sql = "UPDATE {$this->_table} SET last_login=now() WHERE user_id={$user_id}";
         $this->db->query($sql);
     }
+
+    public function getAllUser()
+    {
+        return $this->db->get($this->_table)->result_array();
+    }
+
+    public function tambahDataUser()
+    {
+        $data = [
+            "email" => $this->input->post('email', true),
+            "nama_user" => $this->input->post('nama_user', true),
+            "username" => $this->input->post('username', true),
+            "password" => $this->input->post('password', true),
+            "hak_akses" => $this->input->post('hak_akses', true),
+            "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
+            "instansi" => $this->input->post('instansi', true)
+        ];
+    }
 }

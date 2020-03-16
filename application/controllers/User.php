@@ -62,10 +62,13 @@ class User extends CI_Controller
                 'username' => htmlspecialchars($this->input->post('username', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'instansi' => htmlspecialchars($this->input->post('instansi', true)),
-                'hak_akses' => 1,
-                'jenis_kelamin' => 1,
+                // 'hak_akses' => 1,
+                // 'jenis_kelamin' => 1,
                 'last_login' => time()
             ];
+            $this->User_model->tambahDataUser();
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('user');
         }
     }
 

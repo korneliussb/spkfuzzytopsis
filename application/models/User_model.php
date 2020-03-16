@@ -84,20 +84,35 @@ class User_model extends CI_Model
         return $this->db->get($this->_table)->result_array();
     }
 
-    public function tambahDataUser()
+    public function tambahDataUser($data) //data
     {
-        $data = [
-            "email" => $this->input->post('email', true),
-            "nama_user" => $this->input->post('nama_user', true),
-            "username" => $this->input->post('username', true),
-            "password" => $this->input->post('password', true),
-            "hak_akses" => $this->input->post('hak_akses', true),
-            "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
-            "instansi" => $this->input->post('instansi', true)
+        $data2 = [
+            "email" => $data['email'],
+            "nama_user" => $data['nama_user'],
+            "username" => $data['username'],
+            "password" => $data['password'],
+            "hak_akses" => $data['hak_akses'],
+            "jenis_kelamin" => $data['jenis_kelamin'],
+            "instansi" => $data['instansi'],
         ];
 
-        $this->db->insert($this->_table, $data);
+        $this->db->insert($this->_table, $data2);
     }
+
+    // public function tambahDataUser()
+    // {
+    //     $data = [
+    //         "email" => $this->input->post('email', true),
+    //         "nama_user" => $this->input->post('nama_user', true),
+    //         "username" => $this->input->post('username', true),
+    //         "password" => $this->input->post('password', true),
+    //         "hak_akses" => $this->input->post('hak_akses', true),
+    //         "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
+    //         "instansi" => $this->input->post('instansi', true)
+    //     ];
+
+    //     $this->db->insert($this->_table, $data);
+    // }
 
     public function hapusDataUser($user_id)
     {

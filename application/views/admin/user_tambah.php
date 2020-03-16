@@ -13,7 +13,7 @@
                 </div>
             <?php endif; ?> -->
 
-            <form action="" <?= base_url('user/tambahUser'); ?> method="post">
+            <form action="<?= base_url('user/tambahUser'); ?>" method="post">
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label"><em>Email</em></label>
                     <div class="col-sm-7">
@@ -85,6 +85,7 @@
                             </span>
                             <span class="text">Kembali</span>
                         </a>
+
 
                         <button name="tambahUser" type="submit" class="btn btn-success btn-icon-split">
                             <span class="icon">

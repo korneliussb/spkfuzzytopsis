@@ -21,6 +21,7 @@ class User extends CI_Controller
     public function index()
     {
         $data['title'] = 'Data Pengguna';
+        $data['pengguna'] = $this->User_model->getAllUser();
         //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header.php', $data);
@@ -110,25 +111,66 @@ class User extends CI_Controller
         $this->load->view('templates/footer.php');
     }
 
-    public function ubahUser()
+    public function ubahUser($user_id)
     {
         $data['title'] = 'Ubah Pengguna';
+        $data['pengguna'] = $this->User_model->getUserById($user_id);
 
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
-        $this->load->view('admin/user_ubah.php', $data);
-        $this->load->view('templates/footer.php');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[users.email]', [
+            'is_unique' => 'Email tersebut sudah dipakai.', 'valid_email' => 'Masukkan email yang valid'
+        ]);
+        $this->form_validation->set_rules('nama_user', 'nama lengkap', 'trim|required|min_length[3]', [
+            'min_length' => 'Nama Lengkap minimal 3 karakter.'
+        ]);
+        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[3]|is_unique[users.username]', [
+            'min_length' => 'Username terlalu pendek! Minimal 3 karakter.',
+            'is_unique' => 'Username tersebut sudah dipakai.'
+        ]);
+        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [
+            'min_length' => 'Password terlalu pendek! Minimal 5 karakter.'
+        ]);
+        $this->form_validation->set_rules('instansi', 'instansi', 'trim|required');
+        // $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [
+        //     'min_length' => 'Password terlalu pendek'
+        // ]);
+        // kurang Jenis kelamin dan hak akses
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Ubah Pengguna';
+            $this->load->view('templates/header.php', $data);
+            $this->load->view('templates/sidebar.php');
+            $this->load->view('templates/topbar.php');
+            $this->load->view('admin/user_ubah.php', $data);
+            $this->load->view('templates/footer.php');
+        } else {
+            $email = $this->input->post('email', true);
+            $data = [
+                'email' => htmlspecialchars($email),
+                'nama_user' => htmlspecialchars($this->input->post('nama_user', true)),
+                'username' => htmlspecialchars($this->input->post('username', true)),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'instansi' => htmlspecialchars($this->input->post('instansi', true)),
+                'hak_akses' => $this->input->post('hak_akses'),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'last_login' => time()
+            ];
+            // var_dump($data);
+
+            $this->User_model->ubahDataUser($data); //$data
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('user');
+        }
+
+        // $this->load->view('templates/header.php', $data);
+        // $this->load->view('templates/sidebar.php');
+        // $this->load->view('templates/topbar.php');
+        // $this->load->view('admin/user_ubah.php', $data);
+        // $this->load->view('templates/footer.php');
     }
 
-    public function hapusUser()
+    public function hapusUser($user_id)
     {
-        $data['title'] = 'Hapus Pengguna';
-
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
-        $this->load->view('admin/user_hapus.php', $data);
-        $this->load->view('templates/footer.php');
+        $this->User_model->hapusDataUser($user_id);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user');
     }
 }

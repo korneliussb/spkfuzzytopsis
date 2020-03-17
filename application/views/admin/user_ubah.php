@@ -67,12 +67,20 @@
                         </span>
                         <span class="text">Kembali</span>
                     </a>
-                    <a href="" class="btn btn-success btn-icon-split" type="submit">
+
+                    <button name="ubahUser" type="submit" class="btn btn-success btn-icon-split">
                         <span class="icon">
                             <i class="fas fa-fw fa-save"></i>
                         </span>
                         <span class="text">Simpan</span>
-                    </a>
+                    </button>
+
+                    <!-- <a href="" class="btn btn-success btn-icon-split" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-fw fa-save"></i>
+                        </span>
+                        <span class="text">Simpan</span>
+                    </a> -->
                 </div>
             </div>
         </div>

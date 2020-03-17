@@ -55,42 +55,41 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="fas fa-edit"> Ubah</span>
-                                </a> -->
-                                <a href="<?= base_url('ubahUser'); ?>" class="btn btn-success btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </a>
-                                <a href="<?= base_url('user/detailUser'); ?>" class="btn btn-info btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-info"></i>
-                                    </span>
-                                    <span class="text">Detail</span>
-                                </a>
-                                <a href="" class="btn btn-danger btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
+                        <?php foreach ($pengguna as $user) { ?>
+                            <tr>
+                                <td><?= $user['nama_user']; ?></td>
+                                <td><?= $user['email']; ?></td>
+                                <td><?php if ($user['hak_akses'] == 1) {
+                                        echo 'Admin';
+                                    } ?></td>
+                                <td style="text-align: center">
+                                    <a href="<?= base_url(); ?>user/ubahUser/<?= $user['user_id']; ?>" class="btn btn-success btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span class="text">Ubah</span>
+                                    </a>
+                                    <a href="<?= base_url(); ?>user/detailUser/<?= $user['user_id']; ?>" class="btn btn-info btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-info"></i>
+                                        </span>
+                                        <span class="text">Detail</span>
+                                    </a>
+                                    <a href="<?= base_url(); ?>user/hapusUser/<?= $user['user_id']; ?>" class="btn btn-danger btn-icon-split" onclick="return confirm('Yakin mau dihapus?');">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Hapus</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        <!-- <tr>
                             <td>Lh heh</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
                             <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="fas fa-edit"> Ubah</span>
-                                </a> -->
+
                                 <a href="" class="btn btn-success btn-icon-split">
                                     <span class="icon">
                                         <i class="fas fa-edit"></i>
@@ -110,7 +109,7 @@
                                     <span class="text">Hapus</span>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

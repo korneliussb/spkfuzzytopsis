@@ -13,7 +13,7 @@
                 </div>
             <?php endif; ?> -->
 
-            <form action="<?= base_url('user/ubahUser'); ?>" method="post">
+            <form action="" method="post">
                 <input type="hidden" name="user_id" value="<?= $pengguna['user_id']; ?>">
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label"><em>Email</em></label>
@@ -33,7 +33,7 @@
                 <div class="form-group row">
                     <label for="username" class="col-sm-3 col-form-label"><em>Username</em></label>
                     <div class="col-sm-7">
-                        <input type="text" name="username" class="form-control" id="username" value="<?= $pengguna['username']; ?>">
+                        <input type="text" readonly name="username" class="form-control" id="username" value="<?= $pengguna['username']; ?>">
                         <small class="form-text text-danger"><?= form_error('username'); ?></small>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <label for="hak_akses" class="col-sm-3 col-form-label">Hak Akses</label>
                     <div class="col-sm-7">
                         <select class="form-control" name="hak_akses">
-                            <option <?php set_value('hak_akses') == 1 ?> <?php echo "selected"; ?> value="1">Admin</option>
+                            <option <?php set_value('hak_akses') == 1 ?> selected value="1">Admin</option>
                         </select>
                         <!-- <input type="text" name="hak_akses" class="form-control" placeholder="Admin" id="hak_akses" disabled value="1" readonly required> -->
 

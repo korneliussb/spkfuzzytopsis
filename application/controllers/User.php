@@ -118,16 +118,13 @@ class User extends CI_Controller
         $data['pengguna'] = $this->User_model->getUserById($user_id);
         $data['jenisKelamin'] = [1, 2];
 
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[users.email]', [
-            'is_unique' => 'Email tersebut sudah dipakai.', 'valid_email' => 'Masukkan email yang valid'
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email', [
+            'valid_email' => 'Masukkan email yang valid'
         ]);
         $this->form_validation->set_rules('nama_user', 'nama lengkap', 'trim|required|min_length[3]', [
             'min_length' => 'Nama Lengkap minimal 3 karakter.'
         ]);
-        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[3]|is_unique[users.username]', [
-            'min_length' => 'Username terlalu pendek! Minimal 3 karakter.',
-            'is_unique' => 'Username tersebut sudah dipakai.'
-        ]);
+        $this->form_validation->set_rules('username', 'username', 'trim|required');
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]', [
             'min_length' => 'Password terlalu pendek! Minimal 5 karakter.'
         ]);
@@ -160,12 +157,6 @@ class User extends CI_Controller
             $this->session->set_flashdata('flash', 'diubah');
             redirect('user');
         }
-
-        // $this->load->view('templates/header.php', $data);
-        // $this->load->view('templates/sidebar.php');
-        // $this->load->view('templates/topbar.php');
-        // $this->load->view('admin/user_ubah.php', $data);
-        // $this->load->view('templates/footer.php');
     }
 
     public function hapusUser($user_id)

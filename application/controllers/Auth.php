@@ -6,7 +6,7 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("user_model");
+        $this->load->model("User_model");
         $this->load->library('form_validation');
         // is_logged_in();
     }
@@ -22,7 +22,7 @@ class Auth extends CI_Controller
 
         //jika form login sudah di submit
         if ($this->input->post()) {
-            if ($this->user_model->doLogin()) redirect(site_url('admin'));
+            if ($this->User_model->doLogin()) redirect(site_url('admin'));
         }
 
         //tampilkan halaman login

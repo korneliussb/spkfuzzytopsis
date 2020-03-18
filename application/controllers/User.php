@@ -78,17 +78,6 @@ class User extends CI_Controller
         }
     }
 
-    // public function tambahUser()
-    // {
-    //     $data['title'] = 'Tambah Pengguna';
-
-    //     $this->load->view('templates/header.php', $data);
-    //     $this->load->view('templates/sidebar.php');
-    //     $this->load->view('templates/topbar.php');
-    //     $this->load->view('admin/user_tambah.php', $data);
-    //     $this->load->view('templates/footer.php');
-    // }
-
     public function simpanUser()
     {
         $data['title'] = 'Tambah Pengguna';

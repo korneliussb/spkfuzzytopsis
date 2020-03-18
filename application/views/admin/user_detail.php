@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-lg-8">
-            <!-- <?= $this->session->flashdata('message'); ?> -->
+            <!-- <?= $this->session->flashdata('flash'); ?> -->
         </div>
     </div>
 
@@ -17,11 +17,15 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Nama Lengkap</h5>
-                    <p class="card-text"><em>Email</em></p>
-                    <p class="card-text">Jenis Kelamin</p>
-                    <p class="card-text">Instansi</p>
-                    <p class="card-text"><small class="text-muted">Member since DateCreated</small></p>
+                    <h5 class="card-title"><?= $pengguna['nama_user']; ?></h5>
+                    <p class="card-text"><em><?= $pengguna['email']; ?></em></p>
+                    <p class="card-text"><?php if ($pengguna['jenis_kelamin'] == 1) {
+                                                echo 'Laki-laki';
+                                            } elseif ($pengguna['jenis_kelamin'] == 2) {
+                                                echo 'Perempuan';
+                                            } ?></p>
+                    <p class="card-text"><?= $pengguna['instansi']; ?></p>
+                    <p class="card-text"><small class="text-muted">Terakhir login sejak <?= $pengguna['last_login']; ?></small></p>
                 </div>
             </div>
         </div>

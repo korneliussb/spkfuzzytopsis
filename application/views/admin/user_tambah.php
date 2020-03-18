@@ -39,7 +39,8 @@
                 <div class="form-group row">
                     <label for="password" class="col-sm-3 col-form-label"><em>Password</em></label>
                     <div class="col-sm-7">
-                        <input type="password" name="password" class="form-control" id="password" value="<?= set_value('password'); ?>">
+                        <input type="password" name="password" class="form-control" id="password">
+                        <!-- value="<?= set_value('password'); ?>" perlu kah ini?-->
                         <small class="form-text text-danger"><?= form_error('password'); ?></small>
                     </div>
                 </div>

@@ -100,9 +100,10 @@ class User extends CI_Controller
         $this->load->view('templates/footer.php');
     }
 
-    public function detailUser()
+    public function detailUser($user_id)
     {
         $data['title'] = 'Detail Pengguna';
+        $data['pengguna'] = $this->User_model->getUserById($user_id);
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
@@ -115,6 +116,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Ubah Pengguna';
         $data['pengguna'] = $this->User_model->getUserById($user_id);
+        $data['jenisKelamin'] = [1, 2];
 
         $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[users.email]', [
             'is_unique' => 'Email tersebut sudah dipakai.', 'valid_email' => 'Masukkan email yang valid'
@@ -135,7 +137,6 @@ class User extends CI_Controller
         // ]);
         // kurang Jenis kelamin dan hak akses
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Ubah Pengguna';
             $this->load->view('templates/header.php', $data);
             $this->load->view('templates/sidebar.php');
             $this->load->view('templates/topbar.php');
@@ -154,7 +155,7 @@ class User extends CI_Controller
                 'last_login' => time()
             ];
             // var_dump($data);
-
+            // echo "Berhasil";
             $this->User_model->ubahDataUser($data); //$data
             $this->session->set_flashdata('flash', 'diubah');
             redirect('user');

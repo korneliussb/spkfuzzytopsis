@@ -124,19 +124,19 @@ class User_model extends CI_Model
         return $this->db->get_where($this->_table, ['user_id' => $user_id])->row_array();
     }
 
-    public function ubahDataUser()
+    public function ubahDataUser($data)
     {
-        $data = [
-            "email" => $this->input->post('email', true),
-            "nama_user" => $this->input->post('nama_user', true),
-            "username" => $this->input->post('username', true),
-            "password" => $this->input->post('password', true),
-            "hak_akses" => $this->input->post('hak_akses', true),
-            "jenis_kelamin" => $this->input->post('jenis_kelamin', true),
-            "instansi" => $this->input->post('instansi', true)
+        $data2 = [
+            "email" => $data['email'],
+            "nama_user" => $data['nama_user'],
+            "username" => $data['username'],
+            "password" => $data['password'],
+            "hak_akses" => $data['hak_akses'],
+            "jenis_kelamin" => $data['jenis_kelamin'],
+            "instansi" => $data['instansi'],
         ];
 
         $this->db->where('user_id', $this->input->post('user_id'));
-        $this->db->update($this->_table, $data);
+        $this->db->update($this->_table, $data2);
     }
 }

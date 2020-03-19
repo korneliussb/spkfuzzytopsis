@@ -13,8 +13,8 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         // $this->load->library('form_validation');
-        $this->load->model("user_model");
-        if ($this->user_model->isNotLogin()) redirect(site_url('auth'));
+        $this->load->model("User_model");
+        if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 
     public function index()

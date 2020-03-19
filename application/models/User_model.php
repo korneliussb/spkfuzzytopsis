@@ -33,6 +33,35 @@ class User_model extends CI_Model
         return false;
     }
 
+    // // coba
+    // public function cek($username, $password, $email)
+    // {
+    //     $password = $password;
+    //     $email = $email;
+    //     $username = $username;
+
+    //     return $this->db->query("Select * from users where email='$email' or username='$username' and password='$password'");
+    // }
+    // // coba
+    // public function cekLogin($username, $password, $email)
+    // {
+    //     $this->db->where('username', $username);
+    //     $query = $this->db->get($this->_table);
+
+    //     if ($query->num_rows() == 1) {
+    //         $hash = $query->row('password');
+    //         if (password_verify($password, $hash)) {
+    //             return $query->result();
+    //         } else {
+    //             $this->session->set_flashdata('flash', 'Email atau Username atau Password yang anda masukkan tidak cocok');
+    //             redirect('auth');
+    //         }
+    //     } else {
+    //         $this->session->set_flashdata('flash', 'Username atau Email yang anda masukkan belum terdaftar');
+    //         redirect('auth');
+    //     }
+    // }
+
     public function isNotLogin()
     {
         return $this->session->userdata('user_logged') === null;
@@ -43,6 +72,8 @@ class User_model extends CI_Model
         $sql = "UPDATE {$this->_table} SET last_login=now() WHERE user_id={$user_id}";
         $this->db->query($sql);
     }
+
+
 
     public function getAllUser()
     {

@@ -20,6 +20,16 @@ class Auth extends CI_Controller
 
         $data['title'] = 'Halaman Login';
 
+        //jika form login sudah di submit
+        if ($this->input->post()) {
+            if ($this->User_model->doLogin()) redirect(site_url('admin'));
+        }
+
+        //tampilkan halaman login
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('auth/login');
+        $this->load->view('templates/auth_footer');
+
         // $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email');
         // $this->form_validation->set_rules('password', 'password', 'required|trim');
         // $this->form_validation->set_rules('username', 'username', 'required|trim');
@@ -41,16 +51,44 @@ class Auth extends CI_Controller
         //     redirect('admin');
         // }
 
-        //jika form login sudah di submit
-        if ($this->input->post()) {
-            if ($this->User_model->doLogin()) redirect(site_url('admin'));
-        }
-
-        //tampilkan halaman login
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('auth/login');
-        $this->load->view('templates/auth_footer');
     }
+
+    // coba
+    // public function login()
+    // {
+    //     $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|xss_clean');
+    //     $this->form_validation->set_rules('password', 'password', 'required|trim|xss_clean');
+    //     $this->form_validation->set_rules('username', 'username', 'required|trim|xss_clean');
+
+    //     if ($this->form_validation->run() == false) {
+    //         // jika form ada yg salah, jalankan
+    //         $data['title'] = 'Halaman Login';
+    //         $this->load->view('templates/auth_header', $data);
+    //         $this->load->view('auth/login');
+    //         $this->load->view('templates/auth_footer');
+    //     } else { //jika benar, cek
+
+    //         $email = $this->input->post('email');
+    //         $username = $this->input->post('username');
+    //         $password = $this->input->post('password');
+
+
+    //         $cek = $this->User_model->cekLogin($username, $password, $email);
+    //         if ($cek == true) {
+    //             foreach ($cek as $row) {
+    //                 $data_session = [
+    //                     'email' => $email,
+    //                     'username' => $username,
+    //                     'user_id' => $row->user_id
+    //                 ];
+    //                 $this->session->set_userdata($data_session);
+    //                 redirect('admin');
+    //             }
+    //         } else {
+    //             $this->load->view('auth/login');
+    //         }
+    //     }
+    // }
 
     public function logout()
     {

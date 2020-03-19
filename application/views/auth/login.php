@@ -18,11 +18,11 @@
                                     <!--Memanggil method default UP bisa pake name di submit-->
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email atau Username..." value="">
-                                        <small class="form-text text-danger"><?= form_error('instansi'); ?></small>
+                                        <small class="form-text text-danger"><?= form_error('email'); ?></small>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
-                                        <small class="form-text text-danger"><?= form_error('instansi'); ?></small>
+                                        <small class="form-text text-danger"><?= form_error('password'); ?></small>
                                     </div>
                                     <button type="submit" name="auth" class="btn btn-primary btn-user btn-block">
                                         <strong>Login</strong>

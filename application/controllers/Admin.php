@@ -12,7 +12,6 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model("product_model");
         // $this->load->library('form_validation');
         $this->load->model("user_model");
         if ($this->user_model->isNotLogin()) redirect(site_url('auth'));

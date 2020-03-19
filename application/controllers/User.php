@@ -22,7 +22,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Data Pengguna';
         $data['pengguna'] = $this->User_model->getAllUser();
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
@@ -78,16 +78,16 @@ class User extends CI_Controller
         }
     }
 
-    public function simpanUser()
-    {
-        $data['title'] = 'Tambah Pengguna';
+    // public function simpanUser()
+    // {
+    //     $data['title'] = 'Tambah Pengguna';
 
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
-        $this->load->view('admin/user.php', $data);
-        $this->load->view('templates/footer.php');
-    }
+    //     $this->load->view('templates/header.php', $data);
+    //     $this->load->view('templates/sidebar.php');
+    //     $this->load->view('templates/topbar.php');
+    //     $this->load->view('admin/user.php', $data);
+    //     $this->load->view('templates/footer.php');
+    // }
 
     public function detailUser($user_id)
     {

@@ -6,16 +6,16 @@ class User_model extends CI_Model
 
     public function doLogin()
     {
-        $post = $this->input->post();
+        $data2 = $this->input->post();
 
         // cari user berdasarkan email dan username
-        $this->db->where('email', $post["email"])->or_where('username', $post["email"]);
+        $this->db->where('email', $data2["email"])->or_where('username', $data2["email"]);
         $user = $this->db->get($this->_table)->row();
 
         // jika user terdaftar
         if ($user) {
             // periksa password-nya
-            $isPasswordTrue = password_verify($post["password"], $user->password);
+            $isPasswordTrue = password_verify($data2["password"], $user->password);
             // periksa role-nya
             // $isAdmin = $user->hak_akses == "1";
 

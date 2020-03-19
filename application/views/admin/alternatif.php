@@ -12,6 +12,20 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-2">
+
+            <?php if ($this->session->flashdata()) : ?>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Data alternatif <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <!-- <h6 href="#" class="btn btn-primary m-0 font-weight-bold text-light">Tambah Pengguna</h6> -->
             <a href="<?= base_url('alternatif/tambahAlternatif'); ?>" class="btn btn-primary btn-icon-split">
                 <span class="icon">
@@ -30,47 +44,47 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
+                        <?php foreach ($alternatif as $alter) { ?>
+                            <tr>
+                                <td><?= $alter['nama_alternatif']; ?></td>
+                                <td style="text-align: center">
+                                    <!-- <a href="" class="btn btn-success btn-icon-split">
                                     <span class="fas fa-edit"> Ubah</span>
                                 </a> -->
-                                <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </a>
+                                    <a href="<?= base_url(); ?>alternatif/ubahAlternatif/<?= $alter['id_alternatif']; ?>" class="btn btn-success btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span class="text">Ubah</span>
+                                    </a>
 
-                                <a href="" class="btn btn-danger btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Lh heh</td>
-                            <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="fas fa-edit"> Ubah</span>
-                                </a> -->
-                                <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </a>
-                                <a href="" class="btn btn-danger btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a href="<?= base_url(); ?>alternatif/hapusAlternatif/<?= $alter['id_alternatif']; ?>" class="btn btn-danger btn-icon-split" onclick="return confirm('Yakin mau dihapus?');">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Hapus</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Lh heh</td>
+                                <td style="text-align: center">
+
+                                    <a href="" class="btn btn-success btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span class="text">Ubah</span>
+                                    </a>
+                                    <a href="" class="btn btn-danger btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Hapus</span>
+                                    </a>
+                                </td>
+                            </tr> -->
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

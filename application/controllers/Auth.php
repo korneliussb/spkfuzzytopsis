@@ -43,8 +43,6 @@ class Auth extends CI_Controller
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
-
         $user = $this->db->get_where('users', ['email' => $email])->row_array();
 
         # jika usernya ada
@@ -83,6 +81,10 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        // hancurkan semua sesi
+        //$this->session->sess_destroy();
+        // redirect(site_url('auth'));
+
         // hancurkan sesi
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('hak_akses');

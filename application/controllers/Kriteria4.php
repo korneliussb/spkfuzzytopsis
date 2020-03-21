@@ -21,6 +21,7 @@ class Kriteria4 extends CI_Controller
     public function index()
     {
         $data['title'] = 'Data Kriteria 4';
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         // $this->load->view('admin/admin_dashboard', $data);

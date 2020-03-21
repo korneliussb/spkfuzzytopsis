@@ -45,8 +45,6 @@ class User_model extends CI_Model
         $this->db->query($sql);
     }
 
-
-
     public function getAllUser()
     {
         return $this->db->get($this->_table)->result_array();

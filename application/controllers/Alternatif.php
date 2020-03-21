@@ -16,14 +16,15 @@ class Alternatif extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model("Alternatif_model");
         $this->load->model("User_model");
-        if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 
     public function index()
     {
         $data['title'] = 'Alternatif';
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
-        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         // $this->load->view('admin/admin_dashboard', $data);
 
@@ -37,6 +38,7 @@ class Alternatif extends CI_Controller
     public function tambahAlternatif()
     {
         $data['title'] = 'Tambah Alternatif';
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
@@ -49,6 +51,7 @@ class Alternatif extends CI_Controller
     {
         $data['title'] = 'Ubah Alternatif';
         $data['alternatif'] = $this->Alternatif_model->getAlternatifById($id_alternatif);
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_alternatif', 'nama alternatif', 'trim|required');
 

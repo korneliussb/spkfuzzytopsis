@@ -11,10 +11,10 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model("product_model");
         $this->load->library('form_validation');
         $this->load->model("User_model");
-        if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 
 
@@ -33,6 +33,8 @@ class User extends CI_Controller
 
     public function tambahUser()
     {
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
         $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[users.email]', [
             'is_unique' => 'Email tersebut sudah dipakai.', 'valid_email' => 'Masukkan email yang valid'
         ]);
@@ -91,6 +93,7 @@ class User extends CI_Controller
 
     public function detailUser($user_id)
     {
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Detail Pengguna';
         $data['pengguna'] = $this->User_model->getUserById($user_id);
 
@@ -103,6 +106,7 @@ class User extends CI_Controller
 
     public function ubahUser($user_id)
     {
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Ubah Pengguna';
         $data['pengguna'] = $this->User_model->getUserById($user_id);
         $data['jenisKelamin'] = [1, 2];

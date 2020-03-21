@@ -14,13 +14,14 @@ class NilaiBobotKriteria extends CI_Controller
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
         $this->load->model("User_model");
-        if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 
     public function index()
     {
         $data['title'] = 'Nilai Bobot Kriteria';
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         // $this->load->view('admin/admin_dashboard', $data);
 
@@ -34,9 +35,7 @@ class NilaiBobotKriteria extends CI_Controller
     public function ubahBobot()
     {
         $data['title'] = 'Nilai Bobot Kriteria';
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        // $this->load->view('admin/admin_dashboard', $data);
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

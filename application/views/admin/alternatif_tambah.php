@@ -4,6 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
+
     <div class="row">
         <div class="col-md-12">
 
@@ -15,21 +16,22 @@
             </div>
 
             <div class="form-group row">
-                <label for="gender" class="col-sm-4 col-form-label">Vegetasi Area Genangan Embung</label>
+                <label for="vege" class="col-sm-4 col-form-label">Vegetasi Area Genangan Embung</label>
                 <div class="col-sm-5">
-                    <select class="form-control" id="gender" name="gender" value="gender">
-                        <option>Hutan (forest)</option>
-                        <option>Semak belukar (shrubs)</option>
-                        <option>Ladang/tegalan (field)</option>
-                        <option>Sawah tadah hujan (rainfed)</option>
-                        <option>Perkampungan (rural area)</option>
+                    <select class="form-control" id="vege" name="vege">
+                        <option value="" selected>Pilih Nilai Interval</option>
+                        <option value="1">Hutan (forest)</option>
+                        <option value="2">Semak belukar (shrubs)</option>
+                        <option value="3">Ladang/tegalan (field)</option>
+                        <option value="4">Sawah tadah hujan (rainfed)</option>
+                        <option value="5">Perkampungan (rural area)</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="username" class="col-sm-4 col-form-label">Volume Material Timbunan</label>
+                <label for="vol" class="col-sm-4 col-form-label">Volume Material Timbunan</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="name" name="username" value="">
+                    <input type="text" class="form-control" id="vol" name="vol" value="">
                 </div>
             </div>
             <div class="form-group row">

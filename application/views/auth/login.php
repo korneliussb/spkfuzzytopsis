@@ -14,6 +14,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><?= $title; ?></h1>
                                 </div>
+                                <?= $this->session->flashdata('flash'); ?>
                                 <form class="user" method="post" action="">
                                     <!--Memanggil method default UP bisa pake name di submit-->
                                     <div class="form-group">

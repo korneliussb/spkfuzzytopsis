@@ -26,7 +26,7 @@ class User extends CI_Controller
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
+        $this->load->view('templates/topbar.php', $data);
         $this->load->view('admin/user.php', $data);
         $this->load->view('templates/footer.php');
     }
@@ -96,7 +96,7 @@ class User extends CI_Controller
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
+        $this->load->view('templates/topbar.php', $data);
         $this->load->view('admin/user_detail.php', $data);
         $this->load->view('templates/footer.php');
     }

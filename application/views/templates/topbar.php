@@ -21,7 +21,7 @@
                 <li class="nav-item dropdown no-arrow">
 
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-800 small">Backtick</span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-800 small"><?= $user['nama_user']; ?></span>
                         <!-- <?= $user['nama_user']; ?> -->
                         <!-- <i class="fas fa-fw fa-user rounded-circle"></i> -->
                         <img class="img-profile rounded-circle" src=" <?= base_url('assets/img/profile/default.jpg'); ?>">

@@ -8,92 +8,86 @@ class Auth extends CI_Controller
         parent::__construct();
         $this->load->model("User_model");
         $this->load->library('form_validation');
-        // is_logged_in();
     }
 
     public function index()
     {
+        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('password', 'password', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Halaman Login';
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/login');
+            $this->load->view('templates/auth_footer');
+        } else {
+            // validasinya sukses
+            $this->_login(); //private
+        }
 
         //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // $this->load->view('admin/admin_dashboard', $data);
+        // $data['title'] = 'Halaman Login';
 
-        $data['title'] = 'Halaman Login';
-
-        //jika form login sudah di submit
-        if ($this->input->post()) {
-            if ($this->User_model->doLogin()) redirect(site_url('admin'));
-        }
-
-        //tampilkan halaman login
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('auth/login');
-        $this->load->view('templates/auth_footer');
-
-        // $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email');
-        // $this->form_validation->set_rules('password', 'password', 'required|trim');
-        // $this->form_validation->set_rules('username', 'username', 'required|trim');
-
-        // if ($this->form_validation->run() == false) {
-        //     $data['title'] = 'Halaman Login';
-        //     $this->load->view('templates/auth_header', $data);
-        //     $this->load->view('auth/login');
-        //     $this->load->view('templates/auth_footer');
-        // } else {
-        //     $email = $this->input->post('email', true);
-        //     $data = [
-        //         'email' => htmlspecialchars($email),
-        //         'username' => htmlspecialchars($this->input->post('username', true)),
-        //         'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
-        //     ];
-
-        //     $this->User_model->doLogin($data);
-        //     redirect('admin');
+        // //jika form login sudah di submit
+        // if ($this->input->post()) {
+        //     if ($this->User_model->doLogin()) redirect(site_url('admin'));
         // }
 
+        // //tampilkan halaman login
+        // $this->load->view('templates/auth_header', $data);
+        // $this->load->view('auth/login');
+        // $this->load->view('templates/auth_footer');
     }
 
-    // coba
-    // public function login()
-    // {
-    //     $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|xss_clean');
-    //     $this->form_validation->set_rules('password', 'password', 'required|trim|xss_clean');
-    //     $this->form_validation->set_rules('username', 'username', 'required|trim|xss_clean');
-
-    //     if ($this->form_validation->run() == false) {
-    //         // jika form ada yg salah, jalankan
-    //         $data['title'] = 'Halaman Login';
-    //         $this->load->view('templates/auth_header', $data);
-    //         $this->load->view('auth/login');
-    //         $this->load->view('templates/auth_footer');
-    //     } else { //jika benar, cek
-
-    //         $email = $this->input->post('email');
-    //         $username = $this->input->post('username');
-    //         $password = $this->input->post('password');
+    private function _login()
+    {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
 
 
-    //         $cek = $this->User_model->cekLogin($username, $password, $email);
-    //         if ($cek == true) {
-    //             foreach ($cek as $row) {
-    //                 $data_session = [
-    //                     'email' => $email,
-    //                     'username' => $username,
-    //                     'user_id' => $row->user_id
-    //                 ];
-    //                 $this->session->set_userdata($data_session);
-    //                 redirect('admin');
-    //             }
-    //         } else {
-    //             $this->load->view('auth/login');
-    //         }
-    //     }
-    // }
+        $user = $this->db->get_where('users', ['email' => $email])->row_array();
+
+        # jika usernya ada
+        if ($user) {
+            # cek password
+            if (password_verify($password, $user['password'])) {
+                # kalo sama
+                $data = [
+                    'email' => $user['email'],
+                    'hak_akses' => $user['hak_akses']
+                ];
+                # simpan ke session
+                $this->session->set_userdata($data);
+                // $this->User_model->_updateLastLogin($data);
+                # cek hak akses
+                if ($user['hak_akses'] == 1) {
+                    redirect('admin');
+                } else {
+                    # arahkan ke view login
+                    redirect('auth');
+                }
+            } else {
+                # kalo gagal
+                $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert">Password salah</div>');
+                redirect('auth');
+            }
+        } else {
+            # jika tidak ada, gagalkan loginnya
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert">Email belum terdaftar</div>');
+            redirect('auth');
+        }
+
+        // var_dump($user);
+        // die;
+    }
 
     public function logout()
     {
-        // hancurkan semua sesi
-        $this->session->sess_destroy();
-        redirect(site_url('auth'));
+        // hancurkan sesi
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('hak_akses');
+
+        $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">Anda telah keluar!</div>');
+        redirect('auth');
     }
 }

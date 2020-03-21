@@ -4,62 +4,34 @@ class User_model extends CI_Model
 {
     private $_table = "users";
 
-    public function doLogin()
-    {
-        $data2 = $this->input->post();
 
-        // cari user berdasarkan email dan username
-        $this->db->where('email', $data2["email"])->or_where('username', $data2["email"]);
-        $user = $this->db->get($this->_table)->row();
-
-        // jika user terdaftar
-        if ($user) {
-            // periksa password-nya
-            $isPasswordTrue = password_verify($data2["password"], $user->password);
-            // periksa role-nya
-            // $isAdmin = $user->hak_akses == "1";
-
-            // jika password benar dan dia telah terdaftar / admin
-            // if ($isPasswordTrue && $isAdmin) {
-            if ($isPasswordTrue) {
-                // login sukses
-                $this->session->set_userdata(['user_logged' => $user]);
-                $this->_updateLastLogin($user->user_id);
-                return true;
-            }
-        }
-
-        // login gagal
-        return false;
-    }
-
-    // // coba
-    // public function cek($username, $password, $email)
+    // public function doLogin()
     // {
-    //     $password = $password;
-    //     $email = $email;
-    //     $username = $username;
+    //     $data2 = $this->input->post();
 
-    //     return $this->db->query("Select * from users where email='$email' or username='$username' and password='$password'");
-    // }
-    // // coba
-    // public function cekLogin($username, $password, $email)
-    // {
-    //     $this->db->where('username', $username);
-    //     $query = $this->db->get($this->_table);
+    //     // cari user berdasarkan email dan username
+    //     $this->db->where('email', $data2["email"])->or_where('username', $data2["email"]);
+    //     $user = $this->db->get($this->_table)->row();
 
-    //     if ($query->num_rows() == 1) {
-    //         $hash = $query->row('password');
-    //         if (password_verify($password, $hash)) {
-    //             return $query->result();
-    //         } else {
-    //             $this->session->set_flashdata('flash', 'Email atau Username atau Password yang anda masukkan tidak cocok');
-    //             redirect('auth');
+    //     // jika user terdaftar
+    //     if ($user) {
+    //         // periksa password-nya
+    //         $isPasswordTrue = password_verify($data2["password"], $user->password);
+    //         // periksa role-nya
+    //         // $isAdmin = $user->hak_akses == "1";
+
+    //         // jika password benar dan dia telah terdaftar / admin
+    //         // if ($isPasswordTrue && $isAdmin) {
+    //         if ($isPasswordTrue) {
+    //             // login sukses
+    //             $this->session->set_userdata(['user_logged' => $user]);
+    //             $this->_updateLastLogin($user->user_id);
+    //             return true;
     //         }
-    //     } else {
-    //         $this->session->set_flashdata('flash', 'Username atau Email yang anda masukkan belum terdaftar');
-    //         redirect('auth');
     //     }
+
+    //     // login gagal
+    //     return false;
     // }
 
     public function isNotLogin()
@@ -67,7 +39,7 @@ class User_model extends CI_Model
         return $this->session->userdata('user_logged') === null;
     }
 
-    private function _updateLastLogin($user_id)
+    public function _updateLastLogin($user_id)
     {
         $sql = "UPDATE {$this->_table} SET last_login=now() WHERE user_id={$user_id}";
         $this->db->query($sql);

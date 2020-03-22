@@ -18,7 +18,7 @@
                                 <form class="user" method="post" action="">
                                     <!--Memanggil method default UP bisa pake name di submit-->
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email atau Username..." value="">
+                                        <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email . . ." value="">
                                         <small class="form-text text-danger"><?= form_error('email'); ?></small>
                                     </div>
                                     <div class="form-group">

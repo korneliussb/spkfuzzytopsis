@@ -10,31 +10,32 @@
             DataTables documentation</a>.</p> -->
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-
+    <div class="card shadow mb-4 col-lg-10">
+        <?php if ($this->session->flashdata()) : ?>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Data alternatif <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Vegetasi area genangan embung</th>
-                            <th>Volume Material Timbunan</th>
-                            <th>Luas daerah yang akan dibebaskan</th>
-                            <th>Volume Tampungan Efektif</th>
-                            <th>Lama Operasi</th>
-                            <th>Harga Air per m<sup>3</sup></th>
-                            <th>Akses Jalan menuju Lokasi</th>
+                            <th>Nama Kriteria</th>
+                            <th>Nilai Bobot</th>
                             <th style="text-align: center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td>0.55, 0.78, 0.66</td>
+                            <td>Kriteria 1</td>
                             <td>0.55, 0.78, 0.66</td>
                             <td style="text-align: center">
                                 <!-- <a href="" class="btn btn-success btn-icon-split">

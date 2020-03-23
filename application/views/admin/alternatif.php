@@ -10,7 +10,7 @@
             DataTables documentation</a>.</p> -->
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 col-lg-10">
         <div class="card-header py-2">
 
             <?php if ($this->session->flashdata()) : ?>

@@ -36,6 +36,7 @@ class NilaiBobotKriteria extends CI_Controller
     {
         $data['title'] = 'Nilai Bobot Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        // $data['bobot'] = $this->db->get_where();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

@@ -39,7 +39,7 @@ class Auth extends CI_Controller
         // $this->load->view('templates/auth_footer');
     }
 
-    private function _login()
+    public function _login()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -59,6 +59,7 @@ class Auth extends CI_Controller
                 // $this->User_model->_updateLastLogin($data);
                 # cek hak akses
                 if ($user['hak_akses'] == 1) {
+
                     redirect('admin');
                 } else {
                     # arahkan ke view login

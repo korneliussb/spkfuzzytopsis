@@ -13,6 +13,9 @@ class Peta extends CI_Controller
     {
         parent::__construct();
         $this->load->model("User_model");
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }

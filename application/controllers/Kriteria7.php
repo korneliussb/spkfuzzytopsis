@@ -15,6 +15,9 @@ class Kriteria7 extends CI_Controller
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
         $this->load->model("User_model");
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
         // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }
 

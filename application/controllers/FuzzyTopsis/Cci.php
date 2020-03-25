@@ -15,13 +15,16 @@ class Cci extends CI_Controller
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
         $this->load->model("user_model");
-        if ($this->user_model->isNotLogin()) redirect(site_url('auth'));
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+        // if ($this->user_model->isNotLogin()) redirect(site_url('auth'));
     }
 
     public function index()
     {
         $data['title'] = 'Koefisiensi Terdekat';
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         // $this->load->view('admin/admin_dashboard', $data);
 

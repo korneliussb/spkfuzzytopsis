@@ -6,12 +6,15 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("User_model");
+        // $this->load->model("User_model"); coba
         $this->load->library('form_validation');
     }
 
     public function index()
     {
+        if ($this->session->userdata('email')) {
+            redirect('admin');
+        }
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'password', 'trim|required');
         if ($this->form_validation->run() == false) {
@@ -39,7 +42,7 @@ class Auth extends CI_Controller
         // $this->load->view('templates/auth_footer');
     }
 
-    public function _login()
+    private function _login()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -85,7 +88,9 @@ class Auth extends CI_Controller
         // hancurkan semua sesi
         //$this->session->sess_destroy();
         // redirect(site_url('auth'));
-
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
         // hancurkan sesi
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('hak_akses');

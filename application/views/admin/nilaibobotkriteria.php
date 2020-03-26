@@ -10,7 +10,7 @@
             DataTables documentation</a>.</p> -->
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4 col-lg-10">
+    <div class="card shadow mb-4 col-lg-11">
         <?php if ($this->session->flashdata()) : ?>
             <div class="row mt-3">
                 <div class="col-md-6">
@@ -29,9 +29,9 @@
                     <thead>
                         <tr>
                             <th>Nama Kriteria</th>
-                            <th>Nilai Bobot 1</th>
-                            <th>Nilai Bobot 2</th>
-                            <th>Nilai Bobot 3</th>
+                            <th>Nilai Bobot</th>
+                            <th>Nilai Bobot</th>
+                            <th>Nilai Bobot</th>
                             <th style="text-align: center">Aksi</th>
                         </tr>
                     </thead>

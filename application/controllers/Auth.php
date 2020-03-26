@@ -54,6 +54,7 @@ class Auth extends CI_Controller
             if (password_verify($password, $user['password'])) {
                 # kalo sama
                 $data = [
+                    // 'login' => true,
                     'email' => $user['email'],
                     'hak_akses' => $user['hak_akses']
                 ];

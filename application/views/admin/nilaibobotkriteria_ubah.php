@@ -8,19 +8,19 @@
         <div class="col-md-10">
 
             <div class="form-group row">
-                <label for="gender" class="col-sm-4 col-form-label">Vegetasi Area Genangan Embung</label>
+                <label for="gender" class="col-sm-4 col-form-label"><?= $bobot['nama_kriteria']; ?></label>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="">
+                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot1']; ?>">
                 </div>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="">
+                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot2']; ?>">
                 </div>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="">
+                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot3']; ?>">
                 </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="gender" class="col-sm-4 col-form-label">Volume Material Timbunan</label>
                 <div class="col-sm-2">
                     <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="">
@@ -92,7 +92,7 @@
                 <div class="col-sm-2">
                     <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="">
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="form-group row">

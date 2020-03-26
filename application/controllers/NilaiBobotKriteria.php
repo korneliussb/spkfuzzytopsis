@@ -14,6 +14,7 @@ class NilaiBobotKriteria extends CI_Controller
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
         $this->load->model("User_model");
+        $this->load->model("NilaiBobotKriteria_model");
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }
@@ -25,8 +26,7 @@ class NilaiBobotKriteria extends CI_Controller
     {
         $data['title'] = 'Nilai Bobot Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-
-        // $this->load->view('admin/admin_dashboard', $data);
+        $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
@@ -35,11 +35,13 @@ class NilaiBobotKriteria extends CI_Controller
         $this->load->view('templates/footer.php');
     }
 
-    public function ubahBobot()
+    public function ubahBobot($id_kriteria)
     {
         $data['title'] = 'Nilai Bobot Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         // $data['bobot'] = $this->db->get_where();
+
+        $data['bobot'] = $this->NilaiBobotKriteria_model->getBobotById($id_kriteria);
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

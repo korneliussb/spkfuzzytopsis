@@ -29,27 +29,33 @@
                     <thead>
                         <tr>
                             <th>Nama Kriteria</th>
-                            <th>Nilai Bobot</th>
+                            <th>Nilai Bobot 1</th>
+                            <th>Nilai Bobot 2</th>
+                            <th>Nilai Bobot 3</th>
                             <th style="text-align: center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Kriteria 1</td>
-                            <td>0.55, 0.78, 0.66</td>
-                            <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
+                        <?php foreach ($AllBobot as $bbt) { ?>
+                            <tr>
+                                <td><?= $bbt['nama_kriteria']; ?></td>
+                                <td><?= $bbt['nilai_bobot1']; ?></td>
+                                <td><?= $bbt['nilai_bobot2']; ?></td>
+                                <td><?= $bbt['nilai_bobot3']; ?></td>
+                                <td style="text-align: center">
+                                    <!-- <a href="" class="btn btn-success btn-icon-split">
                                     <span class="fas fa-edit"> Ubah</span>
                                 </a> -->
-                                <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </a>
+                                    <a href="<?= base_url(); ?>nilaibobotkriteria/ubahBobot/<?= $bbt['id_kriteria']; ?>" class="btn btn-success btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span class="text">Ubah</span>
+                                    </a>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

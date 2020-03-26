@@ -19,6 +19,9 @@ class Alternatif extends CI_Controller
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }
+        // if (!$this->session->userdata['login']) {
+        //     redirect('auth');
+        // }
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         // if ($this->User_model->isNotLogin()) redirect(site_url('auth'));
     }

@@ -39,14 +39,45 @@ class NilaiBobotKriteria extends CI_Controller
     {
         $data['title'] = 'Nilai Bobot Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        // $data['bobot'] = $this->db->get_where();
-
         $data['bobot'] = $this->NilaiBobotKriteria_model->getBobotById($id_kriteria);
+
+        // $this->form_validation->set_rules('nilai_bobot1', 'nilai bobot', 'required');
+        // $this->form_validation->set_rules('nilai_bobot2', 'nilai bobot', 'required');
+        // $this->form_validation->set_rules('nilai_bobot3', 'nilai bobot', 'required');
+
+        // if ($this->form_validation->run() == false) {
+        //     $this->load->view('templates/header.php', $data);
+        //     $this->load->view('templates/sidebar.php');
+        //     $this->load->view('templates/topbar.php');
+        //     $this->load->view('admin/nilaibobotkriteria_ubah.php', $data); // base nilaibobotkriteria/ubahBobot
+        //     $this->load->view('templates/footer.php');
+        // } else {
+        //     $data = [
+        //         'nilai_bobot1' => $this->input->post('nilai_bobot1'),
+        //         'nilai_bobot2' => $this->input->post('nilai_bobot2'),
+        //         'nilai_bobot3' => $this->input->post('nilai_bobot3')
+        //     ];
+        //     $this->NilaiBobotKriteria_model->ubahBobot($data); //$data
+        //     $this->session->set_flashdata('flash', 'diubah');
+        //     redirect('nilaibobotkriteria');
+        // }
+
+        $data1 = [
+            'nilai_bobot1' => $this->input->post('nilai_bobot1'),
+            'nilai_bobot2' => $this->input->post('nilai_bobot2'),
+            'nilai_bobot3' => $this->input->post('nilai_bobot3')
+        ];
+
+        if ($this->NilaiBobotKriteria_model->ubahBobot($data1)) {
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('nilaibobotkriteria');
+            # code...
+        }; //$data
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
-        $this->load->view('admin/nilaibobotkriteria_ubah.php'); // base nilaibobotkriteria/ubahBobot
+        $this->load->view('admin/nilaibobotkriteria_ubah.php');
         $this->load->view('templates/footer.php');
     }
 }

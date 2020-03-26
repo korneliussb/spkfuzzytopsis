@@ -10,13 +10,16 @@
             <div class="form-group row">
                 <label for="gender" class="col-sm-4 col-form-label"><?= $bobot['nama_kriteria']; ?></label>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot1']; ?>">
+                    <input class="form-control" type="number" name="nilai_bobot1" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot1']; ?>">
+
                 </div>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot2']; ?>">
+                    <input class="form-control" type="number" name="nilai_bobot2" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot2']; ?>">
+
                 </div>
                 <div class="col-sm-2">
-                    <input class="form-control" type="number" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot3']; ?>">
+                    <input class="form-control" type="number" name="nilai_bobot3" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot3']; ?>">
+
                 </div>
             </div>
 
@@ -104,16 +107,20 @@
                         </span>
                         <span class="text">Kembali</span>
                     </a>
-                    <a href="" class="btn btn-success btn-icon-split" type="submit">
+                    <button name="ubahBobot" type="submit" class="btn btn-success btn-icon-split">
                         <span class="icon">
                             <i class="fas fa-fw fa-save"></i>
                         </span>
                         <span class="text">Simpan</span>
-                    </a>
+                    </button>
+                    <!-- <a href="" class="btn btn-success btn-icon-split" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-fw fa-save"></i>
+                        </span>
+                        <span class="text">Simpan</span>
+                    </a> -->
                 </div>
             </div>
-
-
         </div>
     </div>
 

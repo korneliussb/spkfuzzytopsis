@@ -15,7 +15,7 @@
             <div class="row mt-3">
                 <div class="col-md-6">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        Data alternatif <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>.
+                        Data nilai bobot kriteria <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -28,6 +28,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Kriteria</th>
                             <th>Nilai Bobot</th>
                             <th>Nilai Bobot</th>
@@ -38,6 +39,7 @@
                     <tbody>
                         <?php foreach ($AllBobot as $bbt) { ?>
                             <tr>
+                                <td><?= $bbt['id_kriteria']; ?></td>
                                 <td><?= $bbt['nama_kriteria']; ?></td>
                                 <td><?= $bbt['nilai_bobot1']; ?></td>
                                 <td><?= $bbt['nilai_bobot2']; ?></td>

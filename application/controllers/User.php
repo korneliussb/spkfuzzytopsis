@@ -147,7 +147,9 @@ class User extends CI_Controller
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'last_login' => time()
             ];
+            // echo '<pre>';
             // var_dump($data);
+            // echo '</pre>';
             // echo "Berhasil";
             $this->User_model->ubahDataUser($data); //$data
             $this->session->set_flashdata('flash', 'diubah');

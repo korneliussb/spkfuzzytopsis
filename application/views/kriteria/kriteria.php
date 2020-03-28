@@ -19,6 +19,7 @@
                     <thead style="text-align: center">
                         <tr>
                             <th>No</th>
+                            <th>Alternatif</th>
                             <th>Vegetasi Area Genangan Embung</th>
                             <th>Volume Material Timbunan</th>
                             <th>Luas daerah yang akan dibebaskan</th>
@@ -33,6 +34,7 @@
                         <?php $no = 1; ?>
                         <tr>
                             <td style="text-align: center"><?= $no++; ?></td>
+                            <td>Dadapayam</td>
                             <td>Forest</td>
                             <td>0.09, 0.23, 0.7</td>
                             <td>0.09, 0.23, 0.7</td>

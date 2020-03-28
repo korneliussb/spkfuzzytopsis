@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Vegetasi area genangan embung <em>(vegetation in the inundation area)</em></h1>
+    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
     <!-- Page Heading -->
     <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
@@ -12,25 +12,33 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            <p>Bobot Kriteria = (0.34, 0.55, 0.55)</p>
-            <p><?= $title; ?></p>
+
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align: center">
                         <tr>
-                            <th>Alternatif</th>
-                            <th>Nilai Kriteria</th>
-                            <th>Interval</th>
-                            <th><em>Fuzzy Number</em></th>
+                            <th>No</th>
+                            <th>Vegetasi Area Genangan Embung</th>
+                            <th>Volume Material Timbunan</th>
+                            <th>Luas daerah yang akan dibebaskan</th>
+                            <th>Volume Tampungan Efektif</th>
+                            <th>Lama Operasi</th>
+                            <th>Harga air per m<sup>3</sup></th>
+                            <th>Akses Jalan menuju Lokasi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no = 1; ?>
                         <tr>
-                            <td>Mluweh</td>
-                            <td>1</td>
+                            <td style="text-align: center"><?= $no++; ?></td>
                             <td>Forest</td>
+                            <td>0.09, 0.23, 0.7</td>
+                            <td>0.09, 0.23, 0.7</td>
+                            <td>0.09, 0.23, 0.7</td>
+                            <td>0.09, 0.23, 0.7</td>
+                            <td>0.09, 0.23, 0.7</td>
                             <td>0.09, 0.23, 0.7</td>
                             <td style="text-align: center">
                                 <!-- <a href="" class="btn btn-success btn-icon-split">
@@ -52,6 +60,19 @@
                         </tr>
 
                     </tbody>
+                    <tfoot style="text-align: center">
+                        <tr>
+                            <th>No</th>
+                            <th>Vegetasi Area Genangan Embung</th>
+                            <th>Volume Material Timbunan</th>
+                            <th>Luas daerah yang akan dibebaskan</th>
+                            <th>Volume Tampungan Efektif</th>
+                            <th>Lama Operasi</th>
+                            <th>Harga air per m<sup>3</sup></th>
+                            <th>Akses Jalan menuju Lokasi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

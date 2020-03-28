@@ -38,6 +38,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align: center">
                         <tr>
+                            <th>No</th>
                             <th>Nama Pengguna</th>
                             <th>Email</th>
                             <th>Hak Akses</th>
@@ -46,7 +47,9 @@
                         </tr>
                     </thead>
                     <tfoot style="text-align: center">
+
                         <tr>
+                            <th>No</th>
                             <th>Nama Pengguna</th>
                             <th>Email</th>
                             <th>Hak Akses</th>
@@ -55,8 +58,10 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($pengguna as $user) { ?>
+                        <?php $no = 1;
+                        foreach ($pengguna as $user) { ?>
                             <tr>
+                                <td style="text-align: center"><?= $no++; ?></td>
                                 <td><?= $user['nama_user']; ?></td>
                                 <td><?= $user['email']; ?></td>
                                 <td><?php if ($user['hak_akses'] == 1) {

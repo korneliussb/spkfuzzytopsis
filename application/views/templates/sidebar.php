@@ -59,13 +59,15 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                <a class="collapse-item" href="<?= base_url('kriteria1'); ?>">Data Kriteria 1</a>
+                <a class="collapse-item" href="<?= base_url('fuzzymember'); ?>">Data Nilai <em>Fuzzy</em></a>
+                <a class="collapse-item" href="<?= base_url('kriteria'); ?>">Data Nilai Kriteria</a>
+                <!-- <a class="collapse-item" href="<?= base_url('kriteria1'); ?>">Data Kriteria 1</a>
                 <a class="collapse-item" href="<?= base_url('kriteria2'); ?>">Data Kriteria 2</a>
                 <a class="collapse-item" href="<?= base_url('kriteria3'); ?>">Data Kriteria 3</a>
                 <a class="collapse-item" href="<?= base_url('kriteria4'); ?>">Data Kriteria 4</a>
                 <a class="collapse-item" href="<?= base_url('kriteria5'); ?>">Data Kriteria 5</a>
                 <a class="collapse-item" href="<?= base_url('kriteria6'); ?>">Data Kriteria 6</a>
-                <a class="collapse-item" href="<?= base_url('kriteria7'); ?>">Data Kriteria 7</a>
+                <a class="collapse-item" href="<?= base_url('kriteria7'); ?>">Data Kriteria 7</a> -->
             </div>
         </div>
     </li>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kriteria1 extends CI_Controller
+class Kriteria extends CI_Controller
 {
     // public function __construct()
     // {
@@ -23,7 +23,7 @@ class Kriteria1 extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Data Kriteria 1';
+        $data['title'] = 'Data Nilai Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['bobot'] = $this->NilaiBobotKriteria_model->getBobotById(1);
@@ -32,7 +32,7 @@ class Kriteria1 extends CI_Controller
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
-        $this->load->view('kriteria/kriteria1.php');
+        $this->load->view('kriteria/kriteria.php');
         $this->load->view('templates/footer.php');
     }
 }

@@ -39,7 +39,7 @@
                     <tbody>
                         <?php foreach ($AllBobot as $bbt) { ?>
                             <tr>
-                                <td><?= $bbt['id_kriteria']; ?></td>
+                                <td style="text-align: center"><?= $bbt['id_kriteria']; ?></td>
                                 <td><?= $bbt['nama_kriteria']; ?></td>
                                 <td><?= $bbt['nilai_bobot1']; ?></td>
                                 <td><?= $bbt['nilai_bobot2']; ?></td>

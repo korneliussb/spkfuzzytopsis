@@ -39,13 +39,16 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align: center">
                         <tr>
+                            <th>No</th>
                             <th>Nama Alternatif</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($alternatif as $alter) { ?>
+                        <?php $no = 1;
+                        foreach ($alternatif as $alter) { ?>
                             <tr>
+                                <td style="text-align: center"><?= $no++; ?></td>
                                 <td><?= $alter['nama_alternatif']; ?></td>
                                 <td style="text-align: center">
                                     <!-- <a href="" class="btn btn-success btn-icon-split">

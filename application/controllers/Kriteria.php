@@ -12,9 +12,10 @@ class Kriteria extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model("product_model");
-        // $this->load->library('form_validation');
+
         $this->load->model("User_model");
+        $this->load->model('Alternatif_model');
+        $this->load->model('Nilai_model');
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }
@@ -25,9 +26,11 @@ class Kriteria extends CI_Controller
     {
         $data['title'] = 'Data Nilai Kriteria';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['bobot'] = $this->NilaiBobotKriteria_model->getBobotById(1);
         // $this->load->view('admin/admin_dashboard', $data);
+
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        $data['nilai'] = $this->Nilai_model->getNilai();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

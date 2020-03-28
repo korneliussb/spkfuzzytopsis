@@ -31,35 +31,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1; ?>
-                        <tr>
-                            <td style="text-align: center"><?= $no++; ?></td>
-                            <td>Dadapayam</td>
-                            <td>Forest</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td>0.09, 0.23, 0.7</td>
-                            <td style="text-align: center">
-                                <!-- <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="fas fa-edit"> Ubah</span>
-                                </a> -->
-                                <a href="" class="btn btn-success btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Ubah</span>
-                                </a>
-                                <!-- <a href="" class="btn btn-danger btn-icon-split">
-                                    <span class="icon">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </a> -->
-                            </td>
-                        </tr>
+                        <?php $no = 1;
+                        foreach ($alternatif as $alter) { ?>
+                            <tr>
+                                <td style="text-align: center"><?= $no++; ?></td>
+                                <td><?= $alter['nama_alternatif']; ?></td>
+                                <!-- <?php foreach ($nilai_kriteria[$alter->id_alternatif] as $k => $v) : ?>
+                                    <td><?= $v; ?></td>
+                                <?php endforeach; ?> -->
+                                <td>FOrest</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td>
+                                <td style="text-align: center">
+
+                                    <a href="" class="btn btn-success btn-icon-split">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span class="text">Ubah</span>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        <?php } ?>
 
                     </tbody>
                     <tfoot style="text-align: center">

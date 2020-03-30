@@ -36,19 +36,20 @@
                             <tr>
                                 <td style="text-align: center"><?= $no++; ?></td>
                                 <td><?= $alter['nama_alternatif']; ?></td>
-                                <!-- <?php foreach ($nilai_kriteria[$alter->id_alternatif] as $k => $v) : ?>
+                                <?php foreach ($nilai[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td><?= $v; ?></td>
-                                <?php endforeach; ?> -->
-                                <td>FOrest</td>
+                                <?php endforeach; ?>
+
+                                <!-- <td>FOrest</td>
                                 <td>0.09, 0.23, 0.7</td>
                                 <td>0.09, 0.23, 0.7</td>
                                 <td>0.09, 0.23, 0.7</td>
                                 <td>0.09, 0.23, 0.7</td>
                                 <td>0.09, 0.23, 0.7</td>
-                                <td>0.09, 0.23, 0.7</td>
+                                <td>0.09, 0.23, 0.7</td> -->
                                 <td style="text-align: center">
 
-                                    <a href="" class="btn btn-success btn-icon-split">
+                                    <a href="<?= base_url(); ?>kriteria/ubahKriteria/<?= $alter['id_alternatif']; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
@@ -63,6 +64,7 @@
                     <tfoot style="text-align: center">
                         <tr>
                             <th>No</th>
+                            <th>Alternatif</th>
                             <th>Vegetasi Area Genangan Embung</th>
                             <th>Volume Material Timbunan</th>
                             <th>Luas daerah yang akan dibebaskan</th>

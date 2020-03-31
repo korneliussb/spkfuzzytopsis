@@ -9,7 +9,7 @@
         <div class="col-md-12">
 
             <div class="form-group row">
-                <label for="email" class="col-sm-4 col-form-label">Nama Alternatif</label>
+                <label for="" class="col-sm-4 col-form-label">Nama Alternatif</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" id="alternatif" name="alternatif" value="">
                 </div>

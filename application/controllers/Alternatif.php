@@ -46,11 +46,29 @@ class Alternatif extends CI_Controller
         $data['title'] = 'Tambah Alternatif';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header.php', $data);
-        $this->load->view('templates/sidebar.php');
-        $this->load->view('templates/topbar.php');
-        $this->load->view('admin/alternatif_tambah.php');
-        $this->load->view('templates/footer.php');
+        if ($this->input->post('tambahAlternatif')) {
+            foreach ($this->input->post() as $key) {
+                $this->Alternatif_model->tambahNilai($key);
+            }
+            $this->Alternatif_model->tambahAlternatif();
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('alternatif');
+        } else {
+            $data["form"] = $this->Alternatif_model->getListForm();
+            $data['flash'] = $this->session->flashdata('flash');
+            $data['intervals'] = $this->Alternatif_model->getIntervals();
+            $this->load->view('templates/header.php', $data);
+            $this->load->view('templates/sidebar.php');
+            $this->load->view('templates/topbar.php');
+            $this->load->view('admin/alternatif_tambah.php', $data);
+            $this->load->view('templates/footer.php');
+        }
+
+        // $this->load->view('templates/header.php', $data);
+        // $this->load->view('templates/sidebar.php');
+        // $this->load->view('templates/topbar.php');
+        // $this->load->view('admin/alternatif_tambah.php');
+        // $this->load->view('templates/footer.php');
     }
 
     public function ubahAlternatif($id_alternatif)

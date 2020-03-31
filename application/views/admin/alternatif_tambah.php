@@ -124,7 +124,7 @@
                         <span class="text">Kembali</span>
                     </a>
 
-                    <button name="" type="submit" class="btn btn-success btn-icon-split">
+                    <button name="tambahAlternatif" type="submit" class="btn btn-success btn-icon-split">
                         <span class="icon">
                             <i class="fas fa-fw fa-save"></i>
                         </span>

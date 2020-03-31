@@ -38,4 +38,25 @@ class Kriteria extends CI_Controller
         $this->load->view('kriteria/kriteria.php');
         $this->load->view('templates/footer.php');
     }
+
+    public function ubahNilai($id)
+    {
+        $data["form"] = $this->Nilai_model->getListForm($id);
+
+        if ($this->input->post('updateNilai')) {
+            foreach ($data['form'] as $item) {
+                $this->Nilai_model->updateNilai($id, $item->id_kriteria, $this->input->post($item->id_kriteria));
+            }
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('kriteria');
+        } elseif ($this->input->post('kembali')) {
+            redirect('kriteria');
+        } else {
+            $data["selectAlt"] = $this->Nilai_model->getAlternatifById($id);
+            $data['view_name'] = "kriteria/updateNilai";
+            $data['flash'] = $this->session->flashdata('flash');
+            $data['interval'] = $this->Alternatif_model->getInterval();
+            $this->load->view('updateNilai', $data);
+        }
+    }
 }

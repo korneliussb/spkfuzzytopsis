@@ -18,24 +18,25 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align: center">
                         <tr>
-                            <th>No</th>
+                            <!-- <th>No</th> -->
                             <th>Alternatif</th>
-                            <th>Vegetasi Area Genangan Embung</th>
-                            <th>Volume Material Timbunan</th>
-                            <th>Luas daerah yang akan dibebaskan</th>
-                            <th>Volume Tampungan Efektif</th>
-                            <th>Lama Operasi</th>
-                            <th>Harga air per m<sup>3</sup></th>
-                            <th>Akses Jalan menuju Lokasi</th>
+                            <th>K1</th>
+                            <th>K2</th>
+                            <th>K3</th>
+                            <th>K4</th>
+                            <th>K5</th>
+                            <th>K6</th>
+                            <th>K7</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;
+                        <?php  // $no = 1;
                         foreach ($alternatif as $alter) { ?>
                             <tr>
-                                <td style="text-align: center"><?= $no++; ?></td>
+                                <!-- <td style="text-align: center"><?= $no++; ?></td> -->
                                 <td><?= $alter['nama_alternatif']; ?></td>
+                                <!-- <td><?= $alter['nilai_interval']; ?></td> -->
                                 <?php foreach ($nilai[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td><?= $v; ?></td>
                                 <?php endforeach; ?>
@@ -49,7 +50,7 @@
                                 <td>0.09, 0.23, 0.7</td> -->
                                 <td style="text-align: center">
 
-                                    <a href="<?= base_url(); ?>kriteria/ubahKriteria/<?= $alter['id_alternatif']; ?>" class="btn btn-success btn-icon-split">
+                                    <a href="<?= base_url(); ?>kriteria/ubahNilai/<?= $alter['id_alternatif']; ?>" class="btn btn-success btn-icon-split">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
@@ -63,7 +64,7 @@
                     </tbody>
                     <tfoot style="text-align: center">
                         <tr>
-                            <th>No</th>
+                            <!-- <th>No</th> -->
                             <th>Alternatif</th>
                             <th>Vegetasi Area Genangan Embung</th>
                             <th>Volume Material Timbunan</th>

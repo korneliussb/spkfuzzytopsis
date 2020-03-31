@@ -28,6 +28,11 @@ class Alternatif_model extends CI_Model
         $this->db->where('id_alternatif', $this->input->post('id_alternatif'));
         $this->db->update($this->_alternatif, $data2);
     }
+
+    public function getInterval()
+    {
+        return $this->db->get('intervals')->result();
+    }
     // belum, karena antar tabel
     // public function tambahDataAlternatif()
     // {

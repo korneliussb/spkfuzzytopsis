@@ -46,17 +46,29 @@ class Alternatif extends CI_Controller
         $data['title'] = 'Tambah Alternatif';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-        if ($this->input->post('tambahAlternatif')) {
-            foreach ($this->input->post() as $key) {
-                $this->Alternatif_model->tambahNilai($key);
+        if ($this->input->post('nambahAlternatif')) {
+            foreach ($this->input->post() as $key => $value) {
+                if (strpos($key, "id_aspek_teknik-") !== false) {
+                    $k = str_replace('id_aspek_teknik-', '', $key);
+                    $this->Alternatif_model->tambahNilai($k);
+                }
             }
+
             $this->Alternatif_model->tambahAlternatif();
             $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('alternatif');
+
+            // foreach ($this->input->post() as $key) {
+            //     $this->Alternatif_model->tambahNilai($key);
+            // }
+            // $this->Alternatif_model->tambahAlternatif();
+            // $this->session->set_flashdata('flash', 'ditambahkan');
+            // redirect('alternatif');
         } else {
             $data["form"] = $this->Alternatif_model->getListForm();
             $data['flash'] = $this->session->flashdata('flash');
             $data['intervals'] = $this->Alternatif_model->getIntervals();
+            $data['gen'] = $this->Alternatif_model->getKodeOto('id_alternatif', 'alternatif', 2);
             $this->load->view('templates/header.php', $data);
             $this->load->view('templates/sidebar.php');
             $this->load->view('templates/topbar.php');

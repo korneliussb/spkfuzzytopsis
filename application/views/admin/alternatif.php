@@ -13,6 +13,15 @@
     <div class="card shadow mb-4 col-lg-10">
         <div class="card-header py-2">
 
+
+
+            <!-- <h6 href="#" class="btn btn-primary m-0 font-weight-bold text-light">Tambah Pengguna</h6> -->
+            <a href="<?= base_url('alternatif/tambahAlternatif'); ?>" class="btn btn-primary btn-icon-split">
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Tambah</span>
+            </a>
             <?php if ($this->session->flashdata()) : ?>
                 <div class="row mt-3">
                     <div class="col-md-6">
@@ -25,14 +34,6 @@
                     </div>
                 </div>
             <?php endif; ?>
-
-            <!-- <h6 href="#" class="btn btn-primary m-0 font-weight-bold text-light">Tambah Pengguna</h6> -->
-            <a href="<?= base_url('alternatif/tambahAlternatif'); ?>" class="btn btn-primary btn-icon-split">
-                <span class="icon">
-                    <i class="fas fa-plus"></i>
-                </span>
-                <span class="text">Tambah</span>
-            </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -36,39 +36,75 @@ class Alternatif_model extends CI_Model
         // return $query->result();
     }
 
-    public function tambahNilai($data)
+    public function tambahNilai($id)
     {
-        $data2 = [
-            "id_kriteria" => $data['id_kriteria'],
-            "id_alternatif" => $data['id_alternatif'],
-            "nilai_kriteria" => $this->input->post($data['nilai_kriteria'])
-        ];
+        $data = array(
+            'id_kriteria' => $id,
+            'id_alternatif' => $this->input->post('id_alternatif'),
+            'nilai_kriteria' => $this->input->post('id_aspek_teknik-' . $id),
+        );
+        // var_dump($data);
+        // die;
+        $this->db->insert('aspek_teknik', $data);
+        // $data2 = [
+        //     "id_kriteria" => $data['id_kriteria'],
+        //     "id_alternatif" => $this->input->post($data['id_alternatif']),
+        //     "nilai_kriteria" => $this->input->post($data['nilai_kriteria'])
+        // ];
 
-        $this->db->insert('aspek_teknik', $data2);
+        // $this->db->insert('aspek_teknik', $data2);
 
-        // $data = array(
-        //     'kode_kriteria' => $id,
-        //     'kode_alternatif' => $this->input->post('kode_alternatif'),
-        //     'nilai' => $this->input->post('ID-' . $id),
-        // );
 
-        // //  var_dump($data); die;
-        // $this->db->insert('tbl_relasi', $data);
     }
+
+    // public function tambahAlternatif()
+    // {
+    //     $data = [
+    //         "id_alternatif" => $this->input->post('id_alternatif'),
+    //         "nama_alternatif" => htmlspecialchars($this->input->post('nama_alternatif'))
+    //     ];
+
+    //     $this->db->insert($this->_alternatif, $data);
+    // }
 
     public function tambahAlternatif()
     {
-        $data = [
-            "id_alternatif" => $this->input->post('id_alternatif'),
-            "nama_alternatif" => $this->input->post('nama_alternatif')
-        ];
-
+        $data = array(
+            'id_alternatif' => $this->input->post('id_alternatif'),
+            'nama_alternatif' => htmlspecialchars($this->input->post('nama_alternatif', true))
+        );
+        // var_dump($data);
         $this->db->insert($this->_alternatif, $data);
+    }
+
+    public function getKodeOto($field, $table, $length)
+    {
+        global $db;
+        $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '[0-9]{{$length}}' ORDER BY $field DESC");
+
+        $var = $var->row_array()[$field];
+
+        if ($var) {
+            return substr(str_repeat('', $length) . (substr($var, -$length) + 1), -$length);
+        } else {
+            return str_repeat('', $length - 1) . 1;
+        }
     }
 
     public function hapusDataAlternatif($id_alternatif)
     {
+        $this->hapusAspekTeknik($id_alternatif);
         $this->db->delete($this->_alternatif, ['id_alternatif' => $id_alternatif]);
+    }
+
+    // public function hapusDataAlternatif($id_alternatif)
+    // {
+    //     $this->db->delete($this->_alternatif, ['id_alternatif' => $id_alternatif]);
+    // }
+
+    public function hapusAspekTeknik($id_alternatif)
+    {
+        $this->db->delete('aspek_teknik', ['id_alternatif' => $id_alternatif]);
     }
 
     public function ubahDataAlternatif($data)

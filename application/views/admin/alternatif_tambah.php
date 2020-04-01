@@ -11,7 +11,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Nama Alternatif</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" placeholder="Masukkan nama alternatif ..." id="alternatif" name="alternatif" value="">
+                        <input type="text" class="form-control" placeholder="Masukkan nama alternatif ..." id="alternatif" name="nama_alternatif" value="">
                     </div>
                 </div>
 
@@ -27,12 +27,6 @@
                                         (<?= $item->nilai_kriteria; ?>) <?= $item->nilai_interval; ?>
                                     </option>
                                 <?php endforeach; ?>
-                                <!-- <option value="" selected>Pilih Nilai Kriteria</option>
-                                <option value="1">Hutan (forest)</option>
-                                <option value="2">Semak belukar (shrubs)</option>
-                                <option value="3">Ladang/tegalan (field)</option>
-                                <option value="4">Sawah tadah hujan (rainfed)</option>
-                                <option value="5">Perkampungan (rural area)</option> -->
                             </select>
                             <?= "<div><h5></h5></div>" ?>
                         </div>

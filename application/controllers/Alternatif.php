@@ -68,7 +68,7 @@ class Alternatif extends CI_Controller
             $data["form"] = $this->Alternatif_model->getListForm();
             $data['flash'] = $this->session->flashdata('flash');
             $data['intervals'] = $this->Alternatif_model->getIntervals();
-            $data['gen'] = $this->Alternatif_model->getKodeOto('id_alternatif', 'alternatif', 2);
+            $data['gen'] = $this->Alternatif_model->getKodeOto('id_alternatif', 'alternatif', '', 2);
             $this->load->view('templates/header.php', $data);
             $this->load->view('templates/sidebar.php');
             $this->load->view('templates/topbar.php');

@@ -77,17 +77,17 @@ class Alternatif_model extends CI_Model
         $this->db->insert($this->_alternatif, $data);
     }
 
-    public function getKodeOto($field, $table, $length)
+    public function getKodeOto($field, $table, $prefix, $length)
     {
         global $db;
-        $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '[0-9]{{$length}}' ORDER BY $field DESC");
+        $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
 
         $var = $var->row_array()[$field];
 
         if ($var) {
-            return substr(str_repeat('', $length) . (substr($var, -$length) + 1), -$length);
+            return $prefix . substr(str_repeat('0', $length) . (substr($var, -$length) + 1), -$length);
         } else {
-            return str_repeat('', $length - 1) . 1;
+            return $prefix . str_repeat('0', $length - 1) . 1;
         }
     }
 

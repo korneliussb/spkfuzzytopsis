@@ -105,7 +105,7 @@
                             <div class="nav flex-column nav-pills nav-secondary nav-no-bd" id="v-pills-tab-without-border" role="tablist" aria-orientation="vertical">
                                 <?php
                                 foreach ($kriteria as $row) : ?>
-                                    <a class="nav-link " id="v-pills-home-tab-nobd" data-toggle="pill" href="#v-<?php echo $row->id_kriteria ?>" role="tab" aria-controls="v-pills-home-nobd" aria-selected="true"><?php echo $row->id_kriteria ?>. <?php echo $row->nama_kriteria ?></a>
+                                    <a class="nav-link " id="v-pills-home-tab-nobd" data-toggle="pill" href="#v-<?php echo $row->id_kriteria ?>" role="tab" aria-controls="v-pills-home-nobd" aria-selected="true"><?= $row->id_kriteria ?>. <?= $row->nama_kriteria ?></a>
                                 <?php endforeach ?>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                             <div class="tab-content" id="v-pills-without-border-tabContent">
 
                                 <?php foreach ($kriteria as $row) : ?>
-                                    <div class="tab-pane fade show" id="v-<?php echo $row->id_kriteria ?>" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                    <div class="tab-pane fade show" id="v-<?= $row->id_kriteria ?>" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                         <?php foreach ($intervals as $item) :  if ($item->id_kriteria != $row->id_kriteria) {
                                                 continue;
                                             } ?>

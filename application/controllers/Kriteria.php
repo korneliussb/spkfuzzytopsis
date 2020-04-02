@@ -31,6 +31,8 @@ class Kriteria extends CI_Controller
 
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
         $data['nilai'] = $this->Nilai_model->getNilai();
+        $data['kriteria'] = $this->Nilai_model->getKriteria();
+        $data['intervals'] = $this->Alternatif_model->getIntervals();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

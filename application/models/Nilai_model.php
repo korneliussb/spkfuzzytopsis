@@ -65,6 +65,17 @@ class Nilai_model extends CI_Model
         return $this->db->get_where('alternatif', ['id_alternatif' => $id])->row_array();
     }
 
+    public function getKriteria()
+    {
+        $this->db->select('kriteria.*');
+        $this->db->from('kriteria');
+        $this->db->order_by('id_kriteria');
+        $query = $this->db->get();
+        return $query->result();
+
+        // $query = $this->db->query("SELECT * FROM tbl_kriteria ORDER BY kode_kriteria");
+        // return $query->result();
+    }
     #....
     // public function getTable()
     // {

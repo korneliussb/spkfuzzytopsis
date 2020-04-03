@@ -14,7 +14,8 @@ class Ternormalisasi extends CI_Controller
         parent::__construct();
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
-        $this->load->model("user_model");
+        // $this->load->model("user_model");
+        $this->load->model("User_model");
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }

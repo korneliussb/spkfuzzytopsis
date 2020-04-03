@@ -92,6 +92,7 @@
             </div>
         </div>
     </div>
+    <!-- DETAIL KRITERIA -->
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Detail Kriteria</h5>

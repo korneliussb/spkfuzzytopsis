@@ -14,7 +14,10 @@ class Terbobot extends CI_Controller
         parent::__construct();
         // $this->load->model("product_model");
         // $this->load->library('form_validation');
-        $this->load->model("user_model");
+        // $this->load->model("user_model");
+        $this->load->model('User_model');
+        $this->load->model('Alternatif_model');
+        $this->load->model('Nilai_model');
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }
@@ -26,7 +29,13 @@ class Terbobot extends CI_Controller
         $data['title'] = 'Terbobot';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-        // $this->load->view('admin/admin_dashboard', $data);
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        // $data['nilai'] = $this->Nilai_model->getNilai();
+        $data['nilaifuzzy'] = $this->Nilai_model->getNilaiFuzzy();
+        // $data['nilaifuzzy2'] = $this->Nilai_model->getNilaiFuzzy2();
+        // $data['nilaifuzzy3'] = $this->Nilai_model->getNilaiFuzzy3();
+        $data['kriteria'] = $this->Nilai_model->getKriteria();
+        $data['intervals'] = $this->Alternatif_model->getIntervals();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

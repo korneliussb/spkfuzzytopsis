@@ -44,7 +44,8 @@ class Nilai_model extends CI_Model
             FROM aspek_teknik 
             INNER JOIN intervals
             ON (aspek_teknik.id_kriteria = intervals.id_kriteria 
-            AND aspek_teknik.nilai_kriteria= intervals.nilai_kriteria), kriteria
+            AND aspek_teknik.nilai_kriteria= intervals.nilai_kriteria)
+            , kriteria
             WHERE id_alternatif= "' . $id . '" 
             and kriteria.id_kriteria = aspek_teknik.id_kriteria 
             ORDER BY id_kriteria'
@@ -79,7 +80,7 @@ class Nilai_model extends CI_Model
 
     public function getNilaiFuzzy()
     {
-        $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
+        $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');

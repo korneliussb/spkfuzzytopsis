@@ -37,12 +37,18 @@
                                 <!-- <td style="text-align: center"><?= $no++; ?></td> -->
                                 <td><?= $alter['nama_alternatif']; ?></td>
 
-                                <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
+                                <!-- <td>
+                                    <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
+                                        <?= $v; ?>
+                                    <?php endforeach; ?>
+                                </td> -->
+
+                                <!-- <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td>(
                                         <?= $v; ?>,
                                         )
                                     </td>
-                                <?php endforeach; ?>
+                                <?php endforeach; ?> -->
 
                                 <!-- <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td>(
@@ -58,14 +64,13 @@
                                 <?php endforeach; ?> -->
 
 
-                                <!-- <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
+                                <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td>(
                                         <?= $v; ?>,
-                                        <?= $v; ?>,
-                                        <?= $v; ?>
+
                                         )
                                     </td>
-                                <?php endforeach; ?> -->
+                                <?php endforeach; ?>
 
                             </tr>
                         <?php } ?>

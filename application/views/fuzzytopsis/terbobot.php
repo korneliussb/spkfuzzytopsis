@@ -36,19 +36,22 @@
                             <tr>
                                 <!-- <td style="text-align: center"><?= $no++; ?></td> -->
                                 <td><?= $alter['nama_alternatif']; ?></td>
+                                <!-- <td><?= $nilaifuzzy[$alter->fuzzy_number]; ?></td> -->
 
                                 <!-- <td>
-                                    <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
-                                        <?= $v; ?>
-                                    <?php endforeach; ?>
+                                    <?= $nilaifuzzy->fuzzy_number1; ?>
                                 </td> -->
 
-                                <!-- <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
+                                <!-- <?php foreach ($nilaifuzzy as $row) : ?>
                                     <td>(
-                                        <?= $v; ?>,
+                                        <?= $row->fuzzy_number1; ?>,
                                         )
                                     </td>
                                 <?php endforeach; ?> -->
+
+                                <!-- foreach ($rows as $row) {
+                                // $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number1;
+                                // } -->
 
                                 <!-- <?php foreach ($nilaifuzzy[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td>(

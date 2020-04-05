@@ -80,11 +80,18 @@ class Nilai_model extends CI_Model
 
     public function getNilaiFuzzy()
     {
+        // $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
+        // $this->db->from('aspek_teknik');
+        // $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        // $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        // $this->db->join('intervals', 'intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+
         $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
-        $this->db->join('intervals', 'intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+
         $query = $this->db->get();
 
         $rows = $query->result();
@@ -92,9 +99,13 @@ class Nilai_model extends CI_Model
         $data = array();
         foreach ($rows as $row) {
             $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number1;
+            $data2[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number2;
+            $data3[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number3;
         }
 
         return $data;
+
+        // return $rows;
     }
 
     // public function getNilaiFuzzy2()

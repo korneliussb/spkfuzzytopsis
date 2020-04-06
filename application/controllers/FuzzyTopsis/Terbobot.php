@@ -32,8 +32,8 @@ class Terbobot extends CI_Controller
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
         // $data['nilai'] = $this->Nilai_model->getNilai();
         $data['nilaifuzzy'] = $this->Nilai_model->getNilaiFuzzy();
-        // $data['nilaifuzzy2'] = $this->Nilai_model->getNilaiFuzzy2();
-        // $data['nilaifuzzy3'] = $this->Nilai_model->getNilaiFuzzy3();
+        $data['nilaifuzzy2'] = $this->Nilai_model->getNilaiFuzzy2();
+        $data['nilaifuzzy3'] = $this->Nilai_model->getNilaiFuzzy3();
         $data['kriteria'] = $this->Nilai_model->getKriteria();
         $data['intervals'] = $this->Alternatif_model->getIntervals();
 

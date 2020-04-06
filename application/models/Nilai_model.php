@@ -80,11 +80,6 @@ class Nilai_model extends CI_Model
 
     public function getNilaiFuzzy()
     {
-        // $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
-        // $this->db->from('aspek_teknik');
-        // $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
-        // $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
-        // $this->db->join('intervals', 'intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
         $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
         $this->db->from('aspek_teknik');
@@ -99,54 +94,53 @@ class Nilai_model extends CI_Model
         $data = array();
         foreach ($rows as $row) {
             $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number1;
-            $data2[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number2;
-            $data3[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number3;
         }
 
         return $data;
-
         // return $rows;
     }
 
-    // public function getNilaiFuzzy2()
-    // {
-    //     $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
-    //     $this->db->from('aspek_teknik');
-    //     $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
-    //     $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
-    //     $this->db->join('intervals', 'intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
-    //     $query = $this->db->get();
+    public function getNilaiFuzzy2()
+    {
 
-    //     $rows = $query->result();
+        $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
-    //     $data = array();
-    //     foreach ($rows as $row) {
-    //         $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number2;
-    //     }
+        $query = $this->db->get();
 
-    //     return $data;
-    // }
+        $rows = $query->result();
 
-    // public function getNilaiFuzzy3()
-    // {
-    //     $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
-    //     $this->db->from('aspek_teknik');
-    //     $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
-    //     $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
-    //     $this->db->join('intervals', 'intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
-    //     $query = $this->db->get();
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number2;
+        }
 
-    //     $rows = $query->result();
+        return $data;
+    }
 
-    //     $data = array();
-    //     foreach ($rows as $row) {
-    //         $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number3;
-    //     }
+    public function getNilaiFuzzy3()
+    {
 
-    //     return $data;
-    // }
+        $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
+        $query = $this->db->get();
 
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->fuzzy_number3;
+        }
+
+        return $data;
+    }
 
     #....
     // public function getTable()

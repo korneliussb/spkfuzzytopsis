@@ -57,6 +57,20 @@
             <!-- Page level custom scripts -->
             <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
+            <!-- Datatable2 class display-->
+            <script>
+                $(document).ready(function() {
+                    $('table.display').DataTable();
+                });
+            </script>
+
+            <!-- Datatable3 class display2-->
+            <script>
+                $(document).ready(function() {
+                    $('table.display1').DataTable();
+                });
+            </script>
+
             <!-- MODAL -->
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

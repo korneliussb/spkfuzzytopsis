@@ -13,6 +13,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
@@ -66,6 +67,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered display" id="" width="100%" cellspacing="0">
+                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
@@ -174,6 +176,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered display1" id="" width="100%" cellspacing="0">
+                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
@@ -221,6 +224,38 @@
         </div>
     </div>
 
+    <!-- Weight Value of Criteria -->
+    <div class="card shadow mb-4 col-lg-11">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered display3" id="" width="100%" cellspacing="0">
+                    <label for="">Bobot Kriteria <em>(Weight Value of Criteria)</em></label>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Kriteria</th>
+                            <th>Nilai Bobot</th>
+                            <th>Nilai Bobot</th>
+                            <th>Nilai Bobot</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($AllBobot as $bbt) { ?>
+                            <tr>
+                                <td style="text-align: center"><?= $bbt['id_kriteria']; ?></td>
+                                <td><?= $bbt['nama_kriteria']; ?></td>
+                                <td><?= $bbt['nilai_bobot1']; ?></td>
+                                <td><?= $bbt['nilai_bobot2']; ?></td>
+                                <td><?= $bbt['nilai_bobot3']; ?></td>
+
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </div>
 <!-- /.container-fluid -->

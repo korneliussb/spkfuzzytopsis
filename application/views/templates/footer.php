@@ -71,6 +71,13 @@
                 });
             </script>
 
+            <!-- Datatable3 class display3-->
+            <script>
+                $(document).ready(function() {
+                    $('table.display3').DataTable();
+                });
+            </script>
+
             <!-- MODAL -->
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

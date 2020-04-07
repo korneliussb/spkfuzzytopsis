@@ -18,6 +18,7 @@ class Terbobot extends CI_Controller
         $this->load->model('User_model');
         $this->load->model('Alternatif_model');
         $this->load->model('Nilai_model');
+        $this->load->model('NilaiBobotKriteria_model');
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }
@@ -36,6 +37,10 @@ class Terbobot extends CI_Controller
         $data['nilaifuzzy3'] = $this->Nilai_model->getNilaiFuzzy3();
         $data['kriteria'] = $this->Nilai_model->getKriteria();
         $data['intervals'] = $this->Alternatif_model->getIntervals();
+
+        $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
+
+
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

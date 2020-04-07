@@ -25,7 +25,8 @@
                                                 echo 'Perempuan';
                                             } ?></p>
                     <p class="card-text"><?= $pengguna['instansi']; ?></p>
-                    <p class="card-text"><small class="text-muted">Terakhir login sejak <?= $pengguna['last_login']; ?></small></p>
+                    <!-- <p class="card-text"><small class="text-muted">Terakhir login sejak <?= $pengguna['last_login']; ?></small></p> -->
+                    <p class="card-text"><small class="text-muted">Menjadi member sejak <?= $pengguna['last_login']; ?></small></p>
                 </div>
             </div>
         </div>

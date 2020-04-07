@@ -57,6 +57,9 @@ class Hitung extends CI_Controller
         $data['intervals'] = $this->Alternatif_model->getIntervals();
 
         $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
+        $data['bobot1'] = $this->Nilai_model->getTernormalisasi1();
+        $data['bobot2'] = $this->Nilai_model->getTernormalisasi2();
+        $data['bobot3'] = $this->Nilai_model->getTernormalisasi3();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

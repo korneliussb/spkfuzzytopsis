@@ -152,7 +152,7 @@ class Nilai_model extends CI_Model
 
     public function getTernormalisasi1()
     {
-        $this->db->select('intervals.fuzzy_number1 * kriteria.nilai_bobot1 as field_bobot1, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->select('(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot1, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
@@ -180,7 +180,7 @@ class Nilai_model extends CI_Model
 
     public function getTernormalisasi2()
     {
-        $this->db->select('intervals.fuzzy_number2 * kriteria.nilai_bobot2 as field_bobot2, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->select('(intervals.fuzzy_number2 * kriteria.nilai_bobot2) as field_bobot2, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
@@ -200,7 +200,7 @@ class Nilai_model extends CI_Model
 
     public function getTernormalisasi3()
     {
-        $this->db->select('intervals.fuzzy_number3 * kriteria.nilai_bobot3 as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->select('(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');

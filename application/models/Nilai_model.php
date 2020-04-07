@@ -158,6 +158,17 @@ class Nilai_model extends CI_Model
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
         $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
+        $query = $this->db->get();
+
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->field_bobot1;
+        }
+
+        return $data;
+
         // SELECT (intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_hasil, 
         // alternatif.id_alternatif, kriteria.id_kriteria 
         // FROM aspek_teknik 
@@ -175,13 +186,36 @@ class Nilai_model extends CI_Model
         $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
         $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
-        // SELECT (intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_hasil, 
-        // alternatif.id_alternatif, kriteria.id_kriteria 
-        // FROM aspek_teknik 
-        // JOIN alternatif ON alternatif.id_alternatif = aspek_teknik.id_alternatif 
-        // JOIN kriteria ON kriteria.id_kriteria = aspek_teknik.id_kriteria 
-        // JOIN intervals ON intervals.id_kriteria = aspek_teknik.id_kriteria 
-        // AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria 
+        $query = $this->db->get();
+
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->field_bobot2;
+        }
+
+        return $data;
+    }
+
+    public function getTernormalisasi3()
+    {
+        $this->db->select('intervals.fuzzy_number3 * kriteria.nilai_bobot3 as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+
+        $query = $this->db->get();
+
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->field_bobot3;
+        }
+
+        return $data;
     }
 
 

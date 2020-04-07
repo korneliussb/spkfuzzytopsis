@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Terbobot extends CI_Controller
+class Hitung extends CI_Controller
 {
     // public function __construct()
     // {
@@ -53,10 +53,6 @@ class Terbobot extends CI_Controller
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
-        // $data['nilai'] = $this->Nilai_model->getNilai();
-        $data['nilaifuzzy'] = $this->Nilai_model->getNilaiFuzzy();
-        $data['nilaifuzzy2'] = $this->Nilai_model->getNilaiFuzzy2();
-        $data['nilaifuzzy3'] = $this->Nilai_model->getNilaiFuzzy3();
         $data['kriteria'] = $this->Nilai_model->getKriteria();
         $data['intervals'] = $this->Alternatif_model->getIntervals();
 
@@ -65,7 +61,7 @@ class Terbobot extends CI_Controller
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
-        $this->load->view('fuzzytopsis/terbobot/ternormalisasi.php', $data);
+        $this->load->view('fuzzytopsis/ternormalisasi.php', $data);
         $this->load->view('templates/footer.php');
     }
 }

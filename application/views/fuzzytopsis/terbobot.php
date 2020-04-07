@@ -13,7 +13,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
+                    <label for="">Matriks Keputusan <em>Fuzzy</em> 1</label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
@@ -67,7 +67,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered display" id="" width="100%" cellspacing="0">
-                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
+                    <label for="">Matriks Keputusan <em>Fuzzy</em> 2</label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
@@ -176,7 +176,7 @@
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
                 <table class="table table-bordered display1" id="" width="100%" cellspacing="0">
-                    <label for="">Matriks Keputusan <em>Fuzzy</em></label>
+                    <label for="">Matriks Keputusan <em>Fuzzy</em> 3</label>
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->

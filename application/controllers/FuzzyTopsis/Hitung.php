@@ -47,7 +47,7 @@ class Terbobot extends CI_Controller
         $this->load->view('templates/footer.php');
     }
 
-    public function Ternormalisasi()
+    public function ternormalisasi()
     {
         $data['title'] = 'Ternormalisasi';
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
@@ -65,7 +65,7 @@ class Terbobot extends CI_Controller
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
-        $this->load->view('fuzzytopsis/ternormalisasi.php', $data);
+        $this->load->view('fuzzytopsis/terbobot/ternormalisasi.php', $data);
         $this->load->view('templates/footer.php');
     }
 }

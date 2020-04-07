@@ -80,8 +80,14 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                <a class="collapse-item" href="<?= base_url('fuzzytopsis/terbobot'); ?>"><strong>Terbobot</strong></a>
+                <!-- <a class="collapse-item" href="<?= base_url('fuzzytopsis/terbobot'); ?>"><strong>Terbobot</strong></a>
                 <a class="collapse-item" href="<?= base_url('fuzzytopsis/ternormalisasi'); ?>"><strong>Ternormalisasi</strong></a>
+                <a class="collapse-item" href="<?= base_url('fuzzytopsis/fpisfnis'); ?>"><strong>FPIS dan FNIS</strong></a>
+                <a class="collapse-item" href="<?= base_url('fuzzytopsis/di'); ?>"><strong>di <sup>*</sup> dan di <sup>-</sup></strong></a>
+                <a class="collapse-item" href="<?= base_url('fuzzytopsis/cci'); ?>"><strong>Koefisiensi Terdekat</strong></a> -->
+
+                <a class="collapse-item" href="<?= base_url('fuzzytopsis/'); ?>"><strong>Terbobot</strong></a>
+                <a class="collapse-item" href="<?= base_url('fuzzytopsis/fuzzytopsis/ternormalisasi'); ?>"><strong>Ternormalisasi</strong></a>
                 <a class="collapse-item" href="<?= base_url('fuzzytopsis/fpisfnis'); ?>"><strong>FPIS dan FNIS</strong></a>
                 <a class="collapse-item" href="<?= base_url('fuzzytopsis/di'); ?>"><strong>di <sup>*</sup> dan di <sup>-</sup></strong></a>
                 <a class="collapse-item" href="<?= base_url('fuzzytopsis/cci'); ?>"><strong>Koefisiensi Terdekat</strong></a>

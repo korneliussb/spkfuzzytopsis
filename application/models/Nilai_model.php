@@ -245,10 +245,24 @@ class Nilai_model extends CI_Model
         $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
         $this->db->where('kriteria.id_kriteria = "1"');
 
-        $query = $this->db->get();
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
 
-        return $query->result();
 
+        // $query = $this->db->query("SELECT MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot3, 
+        // alternatif.id_alternatif, kriteria.id_kriteria 
+        // FROM aspek_teknik 
+        // JOIN alternatif ON alternatif.id_alternatif = aspek_teknik.id_alternatif 
+        // JOIN kriteria ON kriteria.id_kriteria = aspek_teknik.id_kriteria 
+        // JOIN intervals ON intervals.id_kriteria = aspek_teknik.id_kriteria 
+        // AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria 
+        // WHERE kriteria.id_kriteria = '1'");
+
+        // $rows = $query->result();
+
+        // return $rows;
+        // $query = $this->db->get();
         // $data = array();
         // foreach ($rows as $row) {
         //     $data[$row->id_alternatif][$row->id_kriteria] = $row->field_bobot3;
@@ -256,12 +270,4 @@ class Nilai_model extends CI_Model
 
         // return $data;
     }
-
-    #....
-    // public function getTable()
-    // {
-    //     $this->db->select('users.*', 'kriteria.nama_kriteria');
-    //     $this->db->from('users');
-    //     $this->db->join();
-    // }
 }

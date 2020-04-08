@@ -7,18 +7,19 @@
     <!-- Page Heading -->
     <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1> -->
 
-    <p class="mb-2"><strong>Fuzzy Solusi Ideal Positif <em>(Fuzzy Positive Ideal Solution)</em> A<sup>*</sup></strong></p>
-    <p class="mb-2"><strong>Fuzzy Solusi Ideal Negatif <em>(Fuzzy Negative Ideal Solution)</em> A<sup>-</sup></strong></p>
+    <!-- <p class="mb-2"><strong>Fuzzy Solusi Ideal Positif <em>(Fuzzy Positive Ideal Solution)</em> A<sup>*</sup></strong></p>
+    <p class="mb-2"><strong>Fuzzy Solusi Ideal Negatif <em>(Fuzzy Negative Ideal Solution)</em> A<sup>-</sup></strong></p> -->
     <div class="card shadow mb-4">
         <div class="card-body">
             <!--panggil bobot kriteria up-->
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <label for="">Matriks Keputusan <em>Fuzzy</em> 1</label>
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <p class="mb-2"><strong>Fuzzy Solusi Ideal Positif <em>(Fuzzy Positive Ideal Solution)</em> A<sup>+</sup></strong></p>
+
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
-                            <th>Alternatif</th>
+
                             <th>K1</th>
                             <th>K2</th>
                             <th>K3</th>
@@ -30,23 +31,49 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- $no = 1; -->
+                        <?php foreach ($k1fpis as $k1) { ?>
 
-                        <tr>
-                            <!-- <td><?= $alter['nama_alternatif']; ?></td> -->
-                            <!-- <?php foreach ($k1fpis[$alter['id_alternatif']] as $k => $v) : ?>
-                                    <td>
-                                        <?= $v; ?>
-                                    </td>
-                                <?php endforeach; ?> -->
-                        </tr>
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k1fpis as $k1) { ?>
+
+                            <td><?= $k1->field_bobot3; ?></td>
+
+                        <?php } ?>
+
 
 
                     </tbody>
                     <tfoot style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
-                            <th>Alternatif</th>
+
                             <th>Vegetasi Area Genangan Embung</th>
                             <th>Volume Material Timbunan</th>
                             <th>Luas daerah yang akan dibebaskan</th>

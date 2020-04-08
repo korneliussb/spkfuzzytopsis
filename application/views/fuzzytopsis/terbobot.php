@@ -228,8 +228,9 @@
     <div class="card shadow mb-4 col-lg-11">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered display3" id="" width="100%" cellspacing="0">
-                    <label for="">Bobot Kriteria <em>(Weight Value of Criteria)</em></label>
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <!-- class display3 -->
+                    <label for="">Nilai Bobot Kriteria <em>(Weight Value of Criteria)</em></label>
                     <thead>
                         <tr>
                             <th>No</th>

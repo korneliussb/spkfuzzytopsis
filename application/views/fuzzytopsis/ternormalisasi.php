@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1> -->
-    <p class="mb-2">Matriks Keputusan Normalisasi Fuzzy Terbobot <em>(Fuzzy Weighted Normalized Decision Matrix)</em></p>
+    <p class="mb-2">Matriks Keputusan Normalisasi Terbobot Fuzzy <em>(Fuzzy Weighted Normalized Decision Matrix)</em></p>
 
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -139,10 +139,26 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php // $no = 1;
                         foreach ($alternatif as $alter) { ?>
                             <tr>
                                 <!-- <td style="text-align: center"><?= $no++; ?></td> -->
+                                <td><?= $alter['nama_alternatif']; ?></td>
+
+                                <?php foreach ($bobot3[$alter['id_alternatif']] as $k => $v) : ?>
+                                    <td>
+                                        <?= $v; ?>
+                                    </td>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php } ?>
+
+                        <!-- KOMEN -->
+                        <!-- <?php
+                                foreach ($alternatif as $alter) { ?>
+                            <tr>
+
                                 <td><?= $alter['nama_alternatif']; ?></td>
                                 <?php foreach ($bobot3[$alter['id_alternatif']] as $k => $v) : ?>
                                     <td>
@@ -152,6 +168,15 @@
                             </tr>
                         <?php } ?>
 
+                        <?php foreach ($bobot3 as $row) { ?>
+                            <tr>
+                                <td><?= $row->nama_alternatif; ?></td>
+                                <td><?= $row->field_bobot1; ?></td>
+                                <td><?= $row->field_bobot2; ?></td>
+                                <td><?= $row->field_bobot3; ?></td>
+
+                            </tr>
+                        <?php } ?> -->
                     </tbody>
                     <tfoot style="text-align: center">
                         <tr>
@@ -171,38 +196,9 @@
         </div>
     </div>
 
-    <!-- Weight Value of Criteria -->
-    <div class="card shadow mb-4 col-lg-11">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered display3" id="" width="100%" cellspacing="0">
-                    <label for="">Bobot Kriteria <em>(Weight Value of Criteria)</em></label>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kriteria</th>
-                            <th>Nilai Bobot</th>
-                            <th>Nilai Bobot</th>
-                            <th>Nilai Bobot</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($AllBobot as $bbt) { ?>
-                            <tr>
-                                <td style="text-align: center"><?= $bbt['id_kriteria']; ?></td>
-                                <td><?= $bbt['nama_kriteria']; ?></td>
-                                <td><?= $bbt['nilai_bobot1']; ?></td>
-                                <td><?= $bbt['nilai_bobot2']; ?></td>
-                                <td><?= $bbt['nilai_bobot3']; ?></td>
 
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+
 
 </div>
 <!-- /.container-fluid -->

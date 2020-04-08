@@ -56,7 +56,7 @@ class Hitung extends CI_Controller
         $data['kriteria'] = $this->Nilai_model->getKriteria();
         $data['intervals'] = $this->Alternatif_model->getIntervals();
 
-        $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
+        // $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
         $data['bobot1'] = $this->Nilai_model->getTernormalisasi1();
         $data['bobot2'] = $this->Nilai_model->getTernormalisasi2();
         $data['bobot3'] = $this->Nilai_model->getTernormalisasi3();
@@ -65,6 +65,29 @@ class Hitung extends CI_Controller
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
         $this->load->view('fuzzytopsis/ternormalisasi.php', $data);
+        $this->load->view('templates/footer.php');
+    }
+
+    public function fpisfnis()
+    {
+        $data['title'] = 'FPIS dan FNIS';
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        $data['kriteria'] = $this->Nilai_model->getKriteria();
+        $data['intervals'] = $this->Alternatif_model->getIntervals();
+
+        // $data['AllBobot'] = $this->NilaiBobotKriteria_model->getAllBobot();
+        // $data['bobot1'] = $this->Nilai_model->getTernormalisasi1();
+        // $data['bobot2'] = $this->Nilai_model->getTernormalisasi2();
+        // $data['bobot3'] = $this->Nilai_model->getTernormalisasi3();
+
+        $data['k1fpis'] = $this->Nilai_model->getFPISk1;
+
+        $this->load->view('templates/header.php', $data);
+        $this->load->view('templates/sidebar.php');
+        $this->load->view('templates/topbar.php');
+        $this->load->view('fuzzytopsis/fpisfnis.php', $data);
         $this->load->view('templates/footer.php');
     }
 }

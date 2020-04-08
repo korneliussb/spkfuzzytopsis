@@ -19,6 +19,13 @@ class Nilai_model extends CI_Model
         // $this->db->join('interval', 'interval.nilai_kriteria = aspek_teknik.nilai_kriteria');
         $query = $this->db->get();
 
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->nilai_kriteria;
+        }
+        return $data;
 
         // $query = $this->db->query("SELECT a.id_alternatif, k.id_kriteria, asp.nilai_kriteria 
         // FROM aspek_teknik asp 
@@ -27,14 +34,6 @@ class Nilai_model extends CI_Model
         //     INNER JOIN kriteria k 
         //         ON k.id_kriteria=asp.id_kriteria
         //     ORDER BY a.id_alternatif, k.id_kriteria");
-        $rows = $query->result();
-
-        $data = array();
-        foreach ($rows as $row) {
-            $data[$row->id_alternatif][$row->id_kriteria] = $row->nilai_kriteria;
-        }
-
-        return $data;
     }
 
     public function getListForm($id)
@@ -124,11 +123,11 @@ class Nilai_model extends CI_Model
     public function getNilaiFuzzy3()
     {
 
-        // $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
-        // $this->db->from('aspek_teknik');
-        // $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
-        // $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
-        // $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->select('alternatif.id_alternatif, kriteria.id_kriteria, aspek_teknik.nilai_kriteria, intervals.fuzzy_number1, intervals.fuzzy_number2, intervals.fuzzy_number3');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
 
         $query = $this->db->get();
 
@@ -207,9 +206,17 @@ class Nilai_model extends CI_Model
 
     public function getTernormalisasi3()
     {
-        // $data = $this->db->query("SELECT * from v_normalisasi, alternatif where v_normalisasi.id_alternatif = alternatif.id_alternatif");
+        // $query = $this->db->query("SELECT * from v_normalisasi, alternatif where v_normalisasi.id_alternatif = alternatif.id_alternatif");
+        // $rows = $query->result();
 
-        // return $data->result();
+        // $data = array();
+        // foreach ($rows as $row) {
+        //     $data[$row->id_alternatif][$row->id_kriteria] = $row->field_bobot1;
+        // }
+
+        // return $data;
+
+        // return $query->result();
 
         $this->db->select('(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
@@ -240,8 +247,7 @@ class Nilai_model extends CI_Model
 
         $query = $this->db->get();
 
-        $rows = $query->result();
-        return $rows;
+        return $query->result();
 
         // $data = array();
         // foreach ($rows as $row) {
@@ -250,11 +256,6 @@ class Nilai_model extends CI_Model
 
         // return $data;
     }
-
-    public function nyoba()
-    {
-    }
-
 
     #....
     // public function getTable()

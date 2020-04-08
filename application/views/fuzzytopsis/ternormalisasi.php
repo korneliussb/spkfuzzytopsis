@@ -154,7 +154,7 @@
                             </tr>
                         <?php } ?>
 
-                        <!-- KOMEN -->
+                        <!-- KOMENTAR -->
                         <!-- <?php
                                 foreach ($alternatif as $alter) { ?>
                             <tr>

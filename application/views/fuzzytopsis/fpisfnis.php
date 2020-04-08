@@ -19,15 +19,13 @@
                     <thead style="text-align: center">
                         <tr>
                             <!-- <th>No</th> -->
-
-                            <th>K1</th>
-                            <th>K2</th>
-                            <th>K3</th>
-                            <th>K4</th>
-                            <th>K5</th>
-                            <th>K6</th>
-                            <th>K7</th>
-
+                            <th>Vegetasi Area Genangan Embung</th>
+                            <th>Volume Material Timbunan</th>
+                            <th>Luas daerah yang akan dibebaskan</th>
+                            <th>Volume Tampungan Efektif</th>
+                            <th>Lama Operasi</th>
+                            <th>Harga air per m<sup>3</sup></th>
+                            <th>Akses Jalan menuju Lokasi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,19 +67,7 @@
                         <?php } ?>
 
                     </tbody>
-                    <tfoot style="text-align: center">
-                        <tr>
-                            <!-- <th>No</th> -->
 
-                            <th>Vegetasi Area Genangan Embung</th>
-                            <th>Volume Material Timbunan</th>
-                            <th>Luas daerah yang akan dibebaskan</th>
-                            <th>Volume Tampungan Efektif</th>
-                            <th>Lama Operasi</th>
-                            <th>Harga air per m<sup>3</sup></th>
-                            <th>Akses Jalan menuju Lokasi</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

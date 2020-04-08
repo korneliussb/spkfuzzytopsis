@@ -9,7 +9,8 @@
             <form action="" method="post">
                 <div class="form-group row">
                     <input type="hidden" name="id_kriteria" value="<?= $bobot['id_kriteria']; ?>">
-                    <input type="hidden" name="nama_kriteria" value="<?= $bobot['nama_kriteria']; ?>">
+                    <!-- <input type="hidden" name="nama_kriteria" value="<?= $bobot['nama_kriteria']; ?>"> -->
+                    <!-- Juga bisa tanpa nama kriteria -->
                     <label for="gender" class="col-sm-4 col-form-label"><?= $bobot['nama_kriteria']; ?></label>
                     <div class="col-sm-2">
                         <input class="form-control" type="number" name="nilai_bobot1" placeholder="1.0" step="0.01" min="0" max="1" name="" value="<?= $bobot['nilai_bobot1']; ?>">

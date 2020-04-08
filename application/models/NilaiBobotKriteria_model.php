@@ -25,7 +25,7 @@ class NilaiBobotKriteria_model extends CI_Model
     {
         $data2 = [
             "id_kriteria" => $data1['id_kriteria'],
-            "nama_kriteria" => $data1['nama_kriteria'],
+            // "nama_kriteria" => $data1['nama_kriteria'],
             "nilai_bobot1" => $data1['nilai_bobot1'],
             "nilai_bobot2" => $data1['nilai_bobot2'],
             "nilai_bobot3" => $data1['nilai_bobot3']

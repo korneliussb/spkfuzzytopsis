@@ -83,6 +83,12 @@ class Hitung extends CI_Controller
         // $data['bobot3'] = $this->Nilai_model->getTernormalisasi3();
 
         $data['k1fpis'] = $this->Nilai_model->getFPISk1();
+        $data['k2fpis'] = $this->Nilai_model->getFPISk2();
+        $data['k3fpis'] = $this->Nilai_model->getFPISk3();
+        $data['k4fpis'] = $this->Nilai_model->getFPISk4();
+        $data['k5fpis'] = $this->Nilai_model->getFPISk5();
+        $data['k6fpis'] = $this->Nilai_model->getFPISk6();
+        $data['k7fpis'] = $this->Nilai_model->getFPISk7();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

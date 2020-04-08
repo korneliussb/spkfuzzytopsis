@@ -31,43 +31,42 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- FPIS -->
                         <?php foreach ($k1fpis as $k1) { ?>
 
-                            <td><?= $k1->field_bobot3; ?></td>
+                            <td><?= $k1->field_bobot1; ?></td>
 
                         <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
+                        <?php foreach ($k2fpis as $k2) { ?>
 
-                            <td><?= $k1->field_bobot3; ?></td>
-
-                        <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
-
-                            <td><?= $k1->field_bobot3; ?></td>
+                            <td><?= $k2->field_bobot2; ?></td>
 
                         <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
+                        <?php foreach ($k3fpis as $k3) { ?>
 
-                            <td><?= $k1->field_bobot3; ?></td>
-
-                        <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
-
-                            <td><?= $k1->field_bobot3; ?></td>
+                            <td><?= $k3->field_bobot3; ?></td>
 
                         <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
+                        <?php foreach ($k4fpis as $k4) { ?>
 
-                            <td><?= $k1->field_bobot3; ?></td>
-
-                        <?php } ?>
-                        <?php foreach ($k1fpis as $k1) { ?>
-
-                            <td><?= $k1->field_bobot3; ?></td>
+                            <td><?= $k4->field_bobot4; ?></td>
 
                         <?php } ?>
+                        <?php foreach ($k5fpis as $k5) { ?>
 
+                            <td><?= $k5->field_bobot5; ?></td>
 
+                        <?php } ?>
+                        <?php foreach ($k6fpis as $k6) { ?>
+
+                            <td><?= $k6->field_bobot6; ?></td>
+
+                        <?php } ?>
+                        <?php foreach ($k7fpis as $k7) { ?>
+
+                            <td><?= $k7->field_bobot7; ?></td>
+
+                        <?php } ?>
 
                     </tbody>
                     <tfoot style="text-align: center">

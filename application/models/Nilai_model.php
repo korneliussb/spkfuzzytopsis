@@ -507,4 +507,33 @@ class Nilai_model extends CI_Model
         }
         return $data;
     }
+
+    public function getDneg()
+    {
+        $this->db->select('*');
+        $this->db->from('v_dneg');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = v_dneg.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = v_dneg.id_kriteria');
+
+        $query = $this->db->get();
+
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->dneg;
+        }
+        return $data;
+    }
+
+    public function dAll()
+    {
+        $this->db->select('*');
+        $this->db->from('v_sum');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = v_sum.id_alternatif');
+
+        $query = $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
 }

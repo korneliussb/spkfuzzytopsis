@@ -116,7 +116,8 @@ class Hitung extends CI_Controller
 
         // $data['dis1fpis'] = $this->Nilai_model->getDisFPISk1;
         $data['dplus'] = $this->Nilai_model->getDplus();
-
+        $data['dneg'] = $this->Nilai_model->getDneg();
+        $data['dAll'] = $this->Nilai_model->dAll();
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');

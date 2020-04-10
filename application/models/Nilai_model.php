@@ -468,8 +468,11 @@ class Nilai_model extends CI_Model
         return $rows;
     }
 
+
     public function getDisFPISk1()
     {
+        // gk jadi yg ini
+
         // $query = $this->db->query("SELECT nama_alternatif, v_aplusk1.id_alternatif, dplus
         // from v_aplusk1, alternatif 
         // where v_aplusk1.id_alternatif = alternatif.id_alternatif");

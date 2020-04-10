@@ -90,10 +90,38 @@ class Hitung extends CI_Controller
         $data['k6fpis'] = $this->Nilai_model->getFPISk6();
         $data['k7fpis'] = $this->Nilai_model->getFPISk7();
 
+        $data['k1fnis'] = $this->Nilai_model->getFNISk1();
+        $data['k2fnis'] = $this->Nilai_model->getFNISk2();
+        $data['k3fnis'] = $this->Nilai_model->getFNISk3();
+        $data['k4fnis'] = $this->Nilai_model->getFNISk4();
+        $data['k5fnis'] = $this->Nilai_model->getFNISk5();
+        $data['k6fnis'] = $this->Nilai_model->getFNISk6();
+        $data['k7fnis'] = $this->Nilai_model->getFNISk7();
+
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
         $this->load->view('fuzzytopsis/fpisfnis.php', $data);
+        $this->load->view('templates/footer.php');
+    }
+
+    public function distance()
+    {
+        $data['title'] = 'Distance';
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        $data['kriteria'] = $this->Nilai_model->getKriteria();
+        $data['intervals'] = $this->Alternatif_model->getIntervals();
+
+        // $data['dis1fpis'] = $this->Nilai_model->getDisFPISk1;
+        $data['dplus'] = $this->Nilai_model->getDplus();
+
+
+        $this->load->view('templates/header.php', $data);
+        $this->load->view('templates/sidebar.php');
+        $this->load->view('templates/topbar.php');
+        $this->load->view('fuzzytopsis/distance.php', $data);
         $this->load->view('templates/footer.php');
     }
 }

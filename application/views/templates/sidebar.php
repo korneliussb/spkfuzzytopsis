@@ -89,7 +89,7 @@
                 <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung'); ?>"><strong>Terbobot</strong></a>
                 <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung/ternormalisasi'); ?>"><strong>Ternormalisasi</strong></a>
                 <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung/fpisfnis'); ?>"><strong>FPIS dan FNIS</strong></a>
-                <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung/di'); ?>"><strong>di <sup>*</sup> dan di <sup>-</sup></strong></a>
+                <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung/distance'); ?>"><strong>di <sup>*</sup> dan di <sup>-</sup></strong></a>
                 <a class="collapse-item" href="<?= base_url('Fuzzytopsis/Hitung/cci'); ?>"><strong>Koefisiensi Terdekat</strong></a>
             </div>
         </div>

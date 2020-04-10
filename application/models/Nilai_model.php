@@ -238,6 +238,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk1()
     {
+        // B
         $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot1, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -273,6 +274,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk2()
     {
+        // C
         $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot2, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -287,6 +289,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk3()
     {
+        // C
         $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -301,6 +304,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk4()
     {
+        // B
         $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot4, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -315,6 +319,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk5()
     {
+        // B
         $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot5, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -329,6 +334,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk6()
     {
+        // C
         $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot6, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -343,6 +349,7 @@ class Nilai_model extends CI_Model
 
     public function getFPISk7()
     {
+        // B
         $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot7, alternatif.id_alternatif, kriteria.id_kriteria');
         $this->db->from('aspek_teknik');
         $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
@@ -353,5 +360,148 @@ class Nilai_model extends CI_Model
         $query =  $this->db->get();
         $rows = $query->result();
         return $rows;
+    }
+
+    // FNIS
+    public function getFNISk1()
+    {
+        // B
+        $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot1, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "1"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk2()
+    {
+        // C
+        $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot2, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "2"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk3()
+    {
+        // C
+        $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot3, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "3"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk4()
+    {
+        // B
+        $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot4, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "4"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk5()
+    {
+        // B
+        $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot5, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "5"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk6()
+    {
+        // C
+        $this->db->select('MAX(intervals.fuzzy_number3 * kriteria.nilai_bobot3) as field_bobot6, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "6"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getFNISk7()
+    {
+        // B
+        $this->db->select('MIN(intervals.fuzzy_number1 * kriteria.nilai_bobot1) as field_bobot7, alternatif.id_alternatif, kriteria.id_kriteria');
+        $this->db->from('aspek_teknik');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = aspek_teknik.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = aspek_teknik.id_kriteria');
+        $this->db->join('intervals', 'intervals.id_kriteria = aspek_teknik.id_kriteria AND intervals.nilai_kriteria = aspek_teknik.nilai_kriteria');
+        $this->db->where('kriteria.id_kriteria = "7"');
+
+        $query =  $this->db->get();
+        $rows = $query->result();
+        return $rows;
+    }
+
+    public function getDisFPISk1()
+    {
+        // $query = $this->db->query("SELECT nama_alternatif, v_aplusk1.id_alternatif, dplus
+        // from v_aplusk1, alternatif 
+        // where v_aplusk1.id_alternatif = alternatif.id_alternatif");
+
+        $query = $this->db->query("SELECT * FROM v_aplusk1 ORDER BY `v_aplusk1`.`id_alternatif` ASC");
+
+        return $query->result();
+        // $this->db->select('alternatif.nama_alternatif, v_aplusk1.id_alternatif, v_aplusk1.dplus');
+        // $this->db->from('v_aplusk1, alternatif');
+        // $this->db->where('v_aplusk1.id_alternatif = alternatif.id_alternatif');
+        // $this->db->join('alternatif', 'v_aplusk1.id_alternatif = alternatif.id_alternatif'); 
+
+        // $query = $this->db->get();
+        // $rows = $query->result();
+        // return $rows;
+    }
+
+    public function getDplus()
+    {
+        $this->db->select('*');
+        $this->db->from('v_dplus');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = v_dplus.id_alternatif');
+        $this->db->join('kriteria', 'kriteria.id_kriteria = v_dplus.id_kriteria');
+
+        $query = $this->db->get();
+
+        $rows = $query->result();
+
+        $data = array();
+        foreach ($rows as $row) {
+            $data[$row->id_alternatif][$row->id_kriteria] = $row->dplus;
+        }
+        return $data;
     }
 }

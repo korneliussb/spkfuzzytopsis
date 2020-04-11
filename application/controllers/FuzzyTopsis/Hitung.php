@@ -111,9 +111,6 @@ class Hitung extends CI_Controller
         $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
-        $data['kriteria'] = $this->Nilai_model->getKriteria();
-        $data['intervals'] = $this->Alternatif_model->getIntervals();
-
         // $data['dis1fpis'] = $this->Nilai_model->getDisFPISk1;
         $data['dplus'] = $this->Nilai_model->getDplus();
         $data['dneg'] = $this->Nilai_model->getDneg();
@@ -123,6 +120,24 @@ class Hitung extends CI_Controller
         $this->load->view('templates/sidebar.php');
         $this->load->view('templates/topbar.php');
         $this->load->view('fuzzytopsis/distance.php', $data);
+        $this->load->view('templates/footer.php');
+    }
+
+    public function cci()
+    {
+        $data['title'] = 'Koefisiensi Terdekat';
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['alternatif'] = $this->Alternatif_model->getAllAlternatif();
+        // $data['dis1fpis'] = $this->Nilai_model->getDisFPISk1;
+        $data['dplus'] = $this->Nilai_model->getDplus();
+        $data['dneg'] = $this->Nilai_model->getDneg();
+        $data['dAll'] = $this->Nilai_model->dAll();
+
+        $this->load->view('templates/header.php', $data);
+        $this->load->view('templates/sidebar.php');
+        $this->load->view('templates/topbar.php');
+        $this->load->view('fuzzytopsis/cci.php', $data);
         $this->load->view('templates/footer.php');
     }
 }

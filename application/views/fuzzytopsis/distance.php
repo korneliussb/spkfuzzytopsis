@@ -130,7 +130,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered display5" id="" width="100%" cellspacing="0">
                     <thead style="text-align: left">
-                        <tr>
+                        <tr style="text-align: center">
                             <th>Alternatif</th>
                             <th><em>di<sup>*</sup></em></th>
                             <th><em>di<sup>-</sup></em></th>

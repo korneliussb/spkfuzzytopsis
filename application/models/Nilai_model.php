@@ -536,4 +536,21 @@ class Nilai_model extends CI_Model
         $rows = $query->result();
         return $rows;
     }
+
+    public function cci()
+    {
+        $this->db->select('v_sum.id_alternatif, dneg/(dneg+dplus) AS cci, alternatif.nama_alternatif');
+        $this->db->from('v_sum');
+        $this->db->join('alternatif', 'alternatif.id_alternatif = v_sum.id_alternatif');
+        $this->db->order_by('cci', 'DESC');
+
+        $query = $this->db->get();
+        $rows = $query->result();
+        return $rows;
+
+        // SELECT v_sum.id_alternatif , dneg/(dneg+dplus) AS cci 
+        // FROM v_sum JOIN alternatif 
+        // WHERE alternatif.id_alternatif = v_sum.id_alternatif 
+        // ORDER BY `cci` DESC
+    }
 }

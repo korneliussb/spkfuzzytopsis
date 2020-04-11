@@ -9,23 +9,31 @@
     <!-- <p class="mb-2"> <em>(Fuzzy Decision Matrix and Weight Value of Criteria)</em></p> -->
 
     <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <p class="mb-2">
+        <strong> Koefisiensi Terdekat <em>(Closeness Coefficient)</em></strong>
+    </p>
+    <div class="card shadow mb-4 col-lg-8 ml-auto mr-auto">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead style="text-align: left">
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <thead style="text-align: center">
                         <tr>
+                            <th>Peringkat</th>
                             <th>Alternatif</th>
                             <th>Nilai <em>CC<sub>i</sub> (Closeness Coefficient)</em></th>
-
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mluweh</td>
-                            <td>0.461</td>
 
-                        </tr>
+                        <?php $no = 1;
+                        foreach ($cci as $row) { ?>
+                            <tr>
+                                <td style="text-align: center"><?= $no++; ?></td>
+                                <td><?= $row->nama_alternatif; ?></td>
+                                <td><?= $row->cci; ?></td>
+                            </tr>
+                        <?php } ?>
+
                     </tbody>
                 </table>
             </div>
